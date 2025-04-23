@@ -1,1 +1,4 @@
-@import 'tailwindcss';
+/* @tailwindcss/preflight je deo TailwindCSS i treba da bude automatski uključen */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
