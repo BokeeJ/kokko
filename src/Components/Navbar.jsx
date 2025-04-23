@@ -2,7 +2,7 @@ import React from 'react'
 //react icons
 import { CiInstagram } from "react-icons/ci";
 import { CiFacebook } from "react-icons/ci";
-import { GiHamburgerMenu } from "react-icons/gi";
+
 
 
 function Navbar() {
@@ -11,14 +11,14 @@ function Navbar() {
             <div className='lg:hidden'>
                 <div className='flex justify-around items-center w-full h-[80px] bg-white shadow-md px-5'>
                     {/* left side */}
-                    <div>
-                        <GiHamburgerMenu size={20} />
-                    </div>
+
                     <div>
                         <img src="/logo.svg" alt="logoKokko" className='w-[150px] h-[50px] object-cover bg-transparent' />
                     </div>
                     <div className='flex gap-2'>
-                        <CiInstagram className='text-3xl cursor-pointer hover:text-pink-400' />
+                        <a href="https://www.instagram.com/kokko.design" target='_blank'>
+                            <CiInstagram className='text-3xl cursor-pointer hover:text-pink-400' />
+                        </a>
                         <CiFacebook className='text-3xl cursor-pointer hover:text-pink-400' />
                     </div>
 
