@@ -2,7 +2,9 @@ import React from 'react'
 
 function Main() {
     return (
-        <div className='p-10 w-full flex gap-5 lg:flex-row flex-col'>
+        <div className='p-10 w-full flex gap-5 lg:flex-row flex-col h-screen bg-cover bg-center'
+            style={{ backgroundImage: "url('/profil3.webp')" }}>
+
             {/* leva strana */}
             <div className='overflow-hidden lg:w-[50%] lg:h-[940px]'>
                 <img

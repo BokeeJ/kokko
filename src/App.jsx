@@ -12,7 +12,8 @@ function App() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative"
+    >
 
       {/* Dugme za meni */}
       {/* MiniBar sa animacijom */}
