@@ -1,78 +1,66 @@
-import React from 'react'
-//react icons
-import { CiInstagram } from "react-icons/ci";
-import { CiFacebook } from "react-icons/ci";
-
-
+import React from 'react';
+import { CiInstagram, CiFacebook } from "react-icons/ci";
 
 function Navbar() {
     return (
-        <div className='relative h-screen bg-cover bg-center' style={{ backgroundImage: "url('/profil2.webp')" }} >
-            <div className='lg:hidden'>
-                <div className='flex justify-evenly items-center w-full h-[80px] bg-white shadow-md px-5'>
-                    {/* left side */}
+        <div className="relative w-full h-[100px] lg:h-[200px] overflow-hidden">
+            {/* Pozadinska slika */}
+            <img
+                src="/black2.webp"
+                alt="Background"
+                className="absolute inset-0 w-full h-full object-cover z-0 lg:flex hidden"
+            />
 
-                    <div>
-                        <img src="/2.png" alt="logoKokko" className='w-[150px] h-[100px]  object-contain bg-transparent' />
+            {/* Mobilna verzija */}
+            <div className="lg:hidden relative z-10">
+                <div className="flex justify-center items-center w-full h-[80px] bg-black shadow-md px-5">
+                    {/* Logo */}
+                    <div className=''>
+                        <img src="/2.png" alt="logoKokko" className="w-[120px] h-[90px] object-contain" />
                     </div>
-                    <div className='flex gap-2 absolute right-0'>
-                        <a href="https://www.instagram.com/kokko.design" target='_blank'>
-                            <CiInstagram className='text-3xl cursor-pointer' color='pink' />
+
+                    {/* Ikonice */}
+                    <div className="flex gap-3 right-3 absolute">
+                        <a href="https://www.instagram.com/kokko.design" target="_blank" rel="noopener noreferrer">
+                            <CiInstagram className="text-xl text-pink-200 hover:text-pink-500 cursor-pointer" />
                         </a>
-                        <CiFacebook className='text-3xl cursor-pointer ' color='pink' />
+                        <a href="#">
+                            <CiFacebook className="text-xl text-pink-200 hover:text-pink-500 cursor-pointer" />
+                        </a>
                     </div>
-
-
-
                 </div>
             </div>
 
-            < div className='lg:flex md:flex w-full justify-between items-center hidden'
-            >
-                {/* logo */}
-                <div className='w-[300px] h-[140px] px-2 items-center hidden lg:flex '>
-                    <img src="/2.png" alt="logoKokko" className='w-[200px] h-full object-contain bg-transparent' />
+            {/* Desktop verzija */}
+            <div className="hidden lg:flex w-full h-full justify-between items-center px-8 relative z-10">
+                {/* Logo */}
+                <div className="flex items-center">
+                    <img src="/2.png" alt="logoKokko" className="w-[200px] h-[140px] object-contain" />
                 </div>
 
-                {/* navLinks */}
-                <div className='lg:flex justify-center items-center w-[80%] hidden' >
-                    <ul className="flex justify-center lg:gap-5 gap-2 lg:text-l text-l font-light">
-                        <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
-                            Naslovna
-                        </li>
-                        <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
-                            Katalog
-                        </li>
-                        <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
-                            Kontakt
-                        </li>
-                        <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
-                            Galerija
-                        </li>
+                {/* Navigacija */}
+                <div className="flex-1 flex justify-center">
+                    <ul className="flex gap-10 text-white text-lg font-light">
+                        {["Naslovna", "Katalog", "Kontakt", "Galerija"].map((item, index) => (
+                            <li key={index} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300">
+                                {item}
+                            </li>
+                        ))}
                     </ul>
-
-                </div>
-                <div>
-                    <div className='lg:flex gap-2 hidden'>
-                        <a href="https://www.instagram.com/kokko.design" target='_blank'>
-                            <CiInstagram className='text-3xl cursor-pointer hover:text-pink-400' />
-                        </a>
-                        <CiFacebook className='text-3xl cursor-pointer hover:text-pink-400' />
-                    </div>
                 </div>
 
-            </div >
-            {/* ovde staviti */}
-            <div className='overflow-hidden lg:w-[50%] lg:h-[340px] p-10'>
-                <img
-                    className='w-full h-full object-cover transition-transform duration-700 transform hover:scale-110'
-                    src="/slikabr2.webp"
-                    alt="chickBluza"
-                />
+                {/* Ikonice */}
+                <div className="flex gap-4 items-center">
+                    <a href="https://www.instagram.com/kokko.design" target="_blank" rel="noopener noreferrer">
+                        <CiInstagram className="text-3xl text-white hover:text-pink-300 cursor-pointer" />
+                    </a>
+                    <a href="#">
+                        <CiFacebook className="text-3xl text-white hover:text-pink-300 cursor-pointer" />
+                    </a>
+                </div>
             </div>
-
-        </div >
-    )
+        </div>
+    );
 }
 
-export default Navbar
+export default Navbar;
