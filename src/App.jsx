@@ -1,6 +1,7 @@
 import Navbar from "./Components/Navbar";
 import Main from "./Components/Main";
 import MiniBar from "./Components/MiniBar";
+import Footer from "./Components/Footer";
 import { useState } from "react";
 
 function App() {
@@ -40,6 +41,13 @@ function App() {
 
       {/* Main */}
       <Main />
+      {/* Fini prelaz - fade */}
+      <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div><div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
+
+      {/* Footer */}
+      <Footer />
+
+
 
     </div>
   );

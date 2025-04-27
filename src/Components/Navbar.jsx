@@ -41,7 +41,7 @@ function Navbar() {
                 {/* Navigacija */}
                 <div className="flex-1 flex justify-center">
                     <ul className="flex gap-10 text-white text-lg font-light">
-                        {["Naslovna", "Katalog", "Kontakt", "Galerija"].map((item, index) => (
+                        {["Naslovna", "Katalog", "O nama", "Galerija"].map((item, index) => (
                             <li key={index} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300">
                                 {item}
                             </li>
