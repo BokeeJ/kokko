@@ -1,21 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function MiniBar() {
     return (
         <div className='p-3'>
-            <ul className="flex flex-col justify-center lg:gap-5 gap-2 lg:text-2xl text-l font-normal">
-                <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
+            <ul className="flex flex-col justify-center lg:gap-5 gap-2 lg:text-2xl text-l font-normal text-white">
+                <Link to={'/'} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-[50%] after:transition-all after:duration-300">
                     Naslovna
-                </li>
-                <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
+                </Link>
+                <Link to={'/katalog'} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-[50%] after:transition-all after:duration-300">
                     Katalog
-                </li>
-                <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
-                    Kontakt
-                </li>
-                <li className="cursor-pointer hover:text-pink-400 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-400 after:w-0 hover:after:w-full after:transition-all after:duration-300">
+                </Link>
+                <Link to={'/oMeni'} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-[50%] after:transition-all after:duration-300">
+                    Omeni
+                </Link>
+                <Link to={'/galerija'} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-[50%] after:transition-all after:duration-300">
                     Galerija
-                </li>
+                </Link>
             </ul>
         </div>
     )
