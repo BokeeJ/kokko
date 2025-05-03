@@ -2,9 +2,10 @@ import { CiInstagram, CiFacebook, CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 function Footer() {
+    let brojac = 5;
     return (
         <footer
-            className="w-full text-gray-400 p-6 mt-10 bg-cover bg-center relative"
+            className="w-full text-gray-400 p-6 lg:mt-10 bg-cover bg-center relative"
             style={{ backgroundImage: "url('/black2.webp')" }}
         >
             <div className="absolute inset-0 bg-black/70"></div> {/* Crni sloj preko slike da tekst bude čitljiv */}
@@ -21,8 +22,8 @@ function Footer() {
                 <hr className="border text-white w-[80%] lg:hidden md:hidden" />
 
                 {/* Sredina - linkovi */}
-                <div className="flex gap-5 text-l">
-                    <ul className='flex gap-10 text-white text-lg font-light'>
+                <div className="flex text-l">
+                    <ul className='flex gap-3 text-white text-lg font-light'>
                         <li>
                             <Link
                                 to='/'
@@ -62,9 +63,10 @@ function Footer() {
                     <a href="#">
                         <CiFacebook className="text-3xl hover:text-pink-400 transition" />
                     </a>
-                    <a href='#'>
+                    <Link to='/korpa'>
                         <CiShoppingCart className='text-3xl hover:text-pink-400 transition' />
-                    </a>
+                    </Link>
+                    <p className='text-white absolute text-[10px] ml-[110px] mt-5  w-4 h-4 flex justify-center items-center bg-red-600 rounded-full'>{brojac}</p>
                 </div>
 
             </div>

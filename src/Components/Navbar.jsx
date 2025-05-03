@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router-dom';
 
 function Navbar() {
+    let brojac = 5;
     return (
         <div className='relative w-full h-[100px] lg:h-[200px] overflow-hidden'>
             {/* Pozadinska slika */}
@@ -43,9 +44,10 @@ function Navbar() {
                         <a href='#'>
                             <CiFacebook className='text-xl text-pink-200 hover:text-pink-500 cursor-pointer' />
                         </a>
-                        <a href='#'>
+                        <Link to='/korpa'>
                             <CiShoppingCart className='text-xl text-pink-200 hover:text-pink-500 cursor-pointer' />
-                        </a>
+                        </Link>
+                        <p className='text-white absolute text-[10px] right-0 mt-4 w-3 h-3 flex justify-center items-center bg-red-600 rounded-full'>{brojac}</p>
                     </div>
                 </div>
             </div>
@@ -107,9 +109,11 @@ function Navbar() {
                     <a href='#'>
                         <CiFacebook className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
                     </a>
-                    <a href='#'>
+                    <Link to='/korpa'>
                         <CiShoppingCart className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
-                    </a>
+
+                    </Link>
+                    <h6 className='text-white absolute right-5 mt-5 w-4 h-4 flex justify-center items-center bg-red-600 rounded-full'>{brojac}</h6>
                 </div>
             </div>
         </div>

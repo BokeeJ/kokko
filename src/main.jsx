@@ -9,6 +9,7 @@ import Omeni from './pages/Omeni.jsx'
 import Katalog from './pages/Katalog.jsx'
 import Galerija from './pages/Galerija.jsx'
 import PageNotFound from './pages/PageNotFound.jsx'
+import Korpa from './pages/Korpa.jsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <PageNotFound />
+      },
+      {
+        path: 'korpa',
+        element: <Korpa />
       }
     ]
   }
