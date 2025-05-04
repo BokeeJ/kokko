@@ -2,15 +2,21 @@ import Navbar from "./Components/Navbar";
 import MiniBar from "./Components/MiniBar";
 import Footer from "./Components/Footer";
 import ScrollControl from "./services/ScrollControl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [brojac, setBrojac] = useState(0)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    const korpa = JSON.parse(localStorage.getItem("korpa")) || []
+    setBrojac(korpa.length)
+  }, [])
+
+
 
   return (
     <div className="relative min-h-screen bg-black h-full">
@@ -35,18 +41,19 @@ function App() {
       </div>
       <ScrollControl />
       {/* Navbar */}
-      <Navbar />
+      <Navbar brojac={brojac} />
 
       {/* Fini prelaz - fade */}
       <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div><div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
-      <Outlet />
+      <Outlet context={{ brojac, setBrojac }} />
+
       {/* Main */}
 
       {/* Fini prelaz - fade */}
       <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div><div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
 
       {/* Footer */}
-      <Footer />
+      <Footer brojac={brojac} />
 
 
 

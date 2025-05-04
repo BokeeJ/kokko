@@ -1,8 +1,9 @@
 import { CiInstagram, CiFacebook, CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
-function Footer() {
-    let brojac = 5;
+
+function Footer(props) {
+
     return (
         <footer
             className="w-full text-gray-400 p-6 lg:mt-10 bg-cover bg-center relative"
@@ -66,7 +67,7 @@ function Footer() {
                     <Link to='/korpa'>
                         <CiShoppingCart className='text-3xl hover:text-pink-400 transition' />
                     </Link>
-                    <p className='text-white absolute text-[10px] ml-[110px] mt-5  w-4 h-4 flex justify-center items-center bg-red-600 rounded-full'>{brojac}</p>
+                    <p className='text-white absolute text-[10px] ml-[110px] mt-5  w-4 h-4 flex justify-center items-center bg-red-600 rounded-full'>{props.brojac}</p>
                 </div>
 
             </div>

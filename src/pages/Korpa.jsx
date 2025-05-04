@@ -1,38 +1,68 @@
-import React from 'react'
-import katalog from '../services/Katalog';
-//react icons
-import { CiCircleRemove } from "react-icons/ci";
+import React, { useEffect, useState } from 'react'
+import { Link, useOutletContext } from "react-router-dom"
+
 function Korpa() {
-    katalog.map((item) => {
-        { console.log(item); }
-    })
-    // srediti da katalog ide u korpu...
+
+    const { setBrojac } = useOutletContext();
+    const [artikli, setArtikli] = useState([])
+
+
+    useEffect(() => {
+        const podaci = JSON.parse(localStorage.getItem("korpa")) || []
+        setArtikli(podaci)
+
+    }, [])
+
+    const obrisiArtikal = (index) => {
+        const novaKorpa = [...artikli]
+        novaKorpa.splice(index, 1)
+        setArtikli(novaKorpa)
+        localStorage.setItem("korpa", JSON.stringify(novaKorpa))
+        setBrojac(novaKorpa.length)
+    }
+
     return (
-        <div className='lg:flex-row flex flex-col'>
-            <div className='flex gap-2 w-full'>
+        <div className='lg:flex justify-between'>
+            {/* korpa */}
+            <div className="p-5 flex flex-col gap-6">
+                <h2 className="text-2xl text-white">Tvoja korpa</h2>
+                {artikli.length === 0 ? (
+                    <p className="text-gray-400">Korpa je prazna.</p>
+                ) : (
+                    artikli.map((artikal, i) => (
 
-                <div>
-                    <img className='w-[150px] h-[200px]' src="/slikabr1.webp" alt="pinkChick" />
-                </div>
-                <div className='p-5 flex flex-col w-[50%]'>
-                    <div>
-                        <p className='text-white'><span className='text-2xl text-pink-200'>Ime</span>: Basic Chipka</p>
-                        <p className='text-white'><span className='text-2xl text-pink-200'>Boja</span>:  Pink</p>
-                        <p className='text-white'><span className='text-2xl text-pink-200'>Velicina</span>:  25</p>
-                    </div>
-                    <div className='lg:flex flex-col justify-center items-center gap-2'>
-                        <CiCircleRemove color='white' size={30} />
-                        <h3 className='text-white'>Ukloni</h3>
-                    </div>
+                        <div key={i} className="flex gap-4 bg-black p-4 rounded-xl items-center">
 
-                </div>
+                            <img src={artikal.slika} alt={artikal.naziv} className="w-[100px] h-[120px] object-cover" />
+                            <div className="flex flex-col gap-1 text-white">
+                                <p>{artikal.naziv}</p>
+                                <p>Boja: {artikal.boja}</p>
+                                <p>Veličina: {artikal.velicina}</p>
+                                <p>Cena: {artikal.cena},00 RSD</p>
+                                <button
+                                    onClick={() => obrisiArtikal(i)}
+                                    className="mt-2 text-sm text-pink-400 hover:underline"
+                                >
+                                    Ukloni iz korpe
+                                </button>
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
-            <div className='w-[40%] gap-3'>
-                <h3 className='text-white'> <span className='text-2xl text-pink-200'>Cena</span>: 1800,00rsd</h3>
-                <h3 className='text-white'><span className='text-2xl text-pink-200'>Ukupno</span>: 1800,00rsd</h3>
-                <button className='bg-pink-200 text-black p-1 m-5 rounded-lg'>Poruči</button>
+            {/* zavrsno */}
+            <div className='m-5 p-5'>
+                <h2 className="text-2xl text-white">Ukupna cena</h2>
+                <p className="text-white">
+                    {artikli.reduce((ukupno, artikal) => ukupno + artikal.cena, 0)},00 RSD
+                </p>
+                <Link to={'/order'}>
+                    <button className="mt-4 text-white bg-pink-500 px-4 py-2 rounded hover:bg-pink-600">
+                        Nastavi</button>
+                </Link>
             </div>
         </div>
+
     )
 }
 

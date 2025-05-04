@@ -10,6 +10,7 @@ import Katalog from './pages/Katalog.jsx'
 import Galerija from './pages/Galerija.jsx'
 import PageNotFound from './pages/PageNotFound.jsx'
 import Korpa from './pages/Korpa.jsx'
+import OrderInformation from './services/OrderInformation.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'korpa',
         element: <Korpa />
+      },
+      {
+        path: 'order',
+        element: <OrderInformation />
       }
     ]
   }
