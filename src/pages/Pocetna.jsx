@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 function Pocetna() {
     const fadeInUp = {
@@ -73,9 +74,12 @@ function Pocetna() {
                             src="/slikabr4.webp"
                             alt="chichZuta"
                         />
-                        <h2 className="text-2xl text-white font-bold absolute shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200">
-                            KATALOG
-                        </h2>
+                        <Link className='absolute' to="/katalog">
+                            <h2 className="text-2xl text-white font-bold  shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200">
+                                KATALOG
+                            </h2>
+                        </Link>
+
                     </motion.div>
                 </div>
             </div>
@@ -86,16 +90,35 @@ function Pocetna() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="flex flex-col justify-center items-center gap-5 p-10"
+                className="relative flex flex-col justify-center items-center gap-5 p-10 overflow-hidden h-[400px]"
             >
-                <h2 className="text-4xl text-pink-300 font-bold shadow-lg shadow-black rounded-xl p-4">
-                    O KOKKO
-                </h2>
-                <p className="text-lg text-white font-light shadow-lg shadow-black rounded-xl p-4 text-center max-w-3xl">
-                    <span className='text-pink-300'>KOKKO</span> je brend koji se fokusira na stvaranje jedinstvenih i modernih komada odeće.
-                    Naša misija je da inspirišemo ljude da izraze svoju ličnost kroz modu.
-                </p>
+                {/* VIDEO */}
+                <video
+                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                >
+                    <source src="/kVideo.mp4" type="video/mp4" />
+                    Tvoj browser ne podržava video tag.
+                </video>
+
+                {/* TAMNI SLOJ PREKO VIDEA */}
+                <div className="absolute inset-0 bg-black/50 z-[1]"></div>
+
+                {/* SADRŽAJ */}
+                <div className="relative z-10 text-center">
+                    <h2 className="text-4xl text-pink-300 font-bold  rounded-xl p-4">
+                        O KOKKO
+                    </h2>
+                    <p className="text-lg text-white font-light  rounded-xl p-4 max-w-3xl">
+                        <span className="text-pink-300">KOKKO</span> je brend koji se fokusira na stvaranje jedinstvenih i modernih komada odeće.
+                        Naša misija je da inspirišemo ljude da izraze svoju ličnost kroz modu.
+                    </p>
+                </div>
             </motion.div>
+
         </div>
     )
 }

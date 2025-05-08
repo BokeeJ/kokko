@@ -2,21 +2,35 @@ import Navbar from "./Components/Navbar";
 import MiniBar from "./Components/MiniBar";
 import Footer from "./Components/Footer";
 import ScrollControl from "./services/ScrollControl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 function App() {
+
   const [isOpen, setIsOpen] = useState(false);
   const [brojac, setBrojac] = useState(0)
+  const menuRef = useRef();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
   useEffect(() => {
     const korpa = JSON.parse(localStorage.getItem("korpa")) || []
     setBrojac(korpa.length)
   }, [])
 
-
+  console.log(menuRef);
 
   return (
     <div className="relative min-h-screen bg-black h-full">
@@ -31,6 +45,7 @@ function App() {
 
       {/* Mobilni sidebar meni */}
       <div
+        ref={menuRef}
         className={`lg:hidden fixed top-0 left-0 h-full w-[230px] z-50 shadow-lg transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-black/30 
         ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
