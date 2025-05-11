@@ -11,6 +11,7 @@ import Galerija from './pages/Galerija.jsx'
 import PageNotFound from './pages/PageNotFound.jsx'
 import Korpa from './pages/Korpa.jsx'
 import OrderInformation from './services/OrderInformation.jsx'
+import ArtikalDetalj from './Components/ArtikalDetalj.jsx'
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: 'order',
         element: <OrderInformation />
+      },
+      {
+        path: 'katalog/:id',
+        element: <ArtikalDetalj />
       }
     ]
   }

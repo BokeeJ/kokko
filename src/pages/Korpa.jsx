@@ -21,6 +21,9 @@ function Korpa() {
         setBrojac(novaKorpa.length)
     }
 
+    let korpaPrazna = artikli.length === 0;
+
+
     return (
         <div className='lg:flex justify-between'>
             {/* korpa */}
@@ -32,8 +35,8 @@ function Korpa() {
                     artikli.map((artikal, i) => (
 
                         <div key={i} className="flex gap-4 bg-black p-4 rounded-xl items-center">
-
-                            <img src={artikal.slika} alt={artikal.naziv} className="w-[100px] h-[120px] object-cover" />
+                            <Link to={`/katalog/${artikal.id}`}>
+                                <img src={artikal.slika} alt={artikal.naziv} className="w-[100px] h-[120px] object-cover" /></Link>
                             <div className="flex flex-col gap-1 text-white">
                                 <p>{artikal.naziv}</p>
                                 <p>Boja: {artikal.boja}</p>
@@ -56,10 +59,18 @@ function Korpa() {
                 <p className="text-white">
                     {artikli.reduce((ukupno, artikal) => ukupno + artikal.cena, 0)},00 RSD
                 </p>
-                <Link to={'/order'}>
-                    <button className="mt-4 text-white bg-pink-500 px-4 py-2 rounded hover:bg-pink-600">
-                        Nastavi</button>
-                </Link>
+                {korpaPrazna ? <button
+                    disabled
+                    className="mt-4 text-white bg-gray-500 px-4 py-2 rounded opacity-50 cursor-not-allowed"
+                >
+                    Nastavi
+                </button>
+                    : <div className='flex flex-col'>
+                        <Link className='mt-4  text-white bg-pink-500 px-4 py-2  rounded hover:bg-pink-600' to={'/katalog'}>Nastavi sa kupovinom</Link>
+                        <Link className="mt-4  text-white bg-pink-500 px-4 py-2 rounded hover:bg-pink-600" to={'/order'}>
+                            Nastavi sa placanjem
+                        </Link></div>}
+
             </div>
         </div>
 

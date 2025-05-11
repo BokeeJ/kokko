@@ -14,8 +14,8 @@ function Footer(props) {
             <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
 
                 {/* Leva strana */}
-                <div className="text-center md:text-left">
-                    <img src="/2.png" alt="logoKokko" className="w-[120px] h-[90px] object-contain mx-auto md:mx-0" />
+                <div className="text-center md:text-left flex flex-col justify-center items-center">
+                    <img src="/2.png" alt="logoKokko" className="w-[140px] h-[110px] object-contain mx-auto md:mx-0" />
                     <p className="text-sm mt-2">© 2025 KOKKO. Sva prava zadržana.</p>
                     <p className="text-sm mt-2">Kontakt: kokko.design@gmail.com</p>
                 </div>

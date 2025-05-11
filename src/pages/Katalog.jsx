@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import katalog from '../services/Katalog'
-import { useOutletContext } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 
 
@@ -24,7 +24,7 @@ function Katalog() {
         const korpa = JSON.parse(localStorage.getItem("korpa")) || []
 
         korpa.push({
-            id: item.id,
+            id: Number(item.id),
             naziv: item.naziv,
             slika: item.slika,
             cena: item.cena,
@@ -41,6 +41,7 @@ function Katalog() {
 
     return (
         <div className="flex flex-col gap-6 p-4">
+            <h1 className='text-white text-3xl m-5 '>Katalog</h1>
             <AnimatePresence>
                 {poruka && (
                     <motion.div
@@ -62,10 +63,13 @@ function Katalog() {
                     <div key={item.id} className="flex gap-4 w-full bg-black rounded-xl shadow-md overflow-hidden">
                         {/* Slika */}
                         <div>
-                            <img className="w-[150px] h-[200px] object-cover" src={item.slika} alt={item.naziv} />
+                            <Link to={`/katalog/${item.id}`}>
+                                <img className="w-[150px] h-[200px] object-cover" src={item.slika} alt={item.naziv} />
+                            </Link>
                         </div>
 
                         {/* Podaci */}
+
                         <div className="p-5 flex flex-col w-[50%] justify-between">
                             <div className="space-y-2">
                                 <p className="text-white text-xl">{item.naziv}</p>
@@ -111,6 +115,7 @@ function Katalog() {
                                 </button>
                             </div>
                         </div>
+
                     </div>
                 )
             })}

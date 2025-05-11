@@ -30,7 +30,7 @@ function App() {
     setBrojac(korpa.length)
   }, [])
 
-  console.log(menuRef);
+
 
   return (
     <div className="relative min-h-screen bg-black h-full">
