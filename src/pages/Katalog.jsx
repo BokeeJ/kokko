@@ -64,7 +64,7 @@ function Katalog() {
                         {/* Slika */}
                         <div>
                             <Link to={`/katalog/${item.id}`}>
-                                <img className="w-[150px] h-[200px] object-cover" src={item.slika} alt={item.naziv} />
+                                <img className="w-[150px] h-[200px] object-cover" src={item.slika[0]} alt={item.naziv} />
                             </Link>
                         </div>
 

@@ -30,3 +30,26 @@
 .animation-delay-600 {
 	animation-delay: 0.6s;
 }
+.marquee-track {
+	display: flex;
+	width: fit-content;
+	animation: scroll-left 20s linear infinite;
+}
+
+.marquee-text {
+	white-space: nowrap;
+	font-size: 0.875rem; /* Tailwind ekvivalent: text-sm */
+	color: white;
+	padding-right: 2rem;
+}
+
+/* Animacija */
+@keyframes scroll-left {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
+}

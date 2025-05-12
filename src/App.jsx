@@ -1,9 +1,11 @@
 import Navbar from "./Components/Navbar";
 import MiniBar from "./Components/MiniBar";
 import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 import ScrollControl from "./services/ScrollControl";
 import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
+import ScrollToTop from "./services/ScrollToTop";
 
 function App() {
 
@@ -56,6 +58,7 @@ function App() {
       </div>
       <ScrollControl />
       {/* Navbar */}
+      <Header />
       <Navbar brojac={brojac} />
 
       {/* Fini prelaz - fade */}
@@ -69,8 +72,7 @@ function App() {
 
       {/* Footer */}
       <Footer brojac={brojac} />
-
-
+      <ScrollToTop />
 
     </div>
   );

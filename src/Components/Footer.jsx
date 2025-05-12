@@ -20,41 +20,9 @@ function Footer(props) {
                     <p className="text-sm mt-2">Kontakt: kokko.design@gmail.com</p>
                 </div>
 
-                <hr className="border text-white w-[80%] lg:hidden md:hidden" />
 
-                {/* Sredina - linkovi */}
-                <div className="flex text-l">
-                    <ul className='flex gap-3 text-white text-lg font-light'>
-                        <li>
-                            <Link
-                                to='/'
-                                className='hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300'>
-                                Naslovna
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to='/katalog'
-                                className='hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300'>
-                                Katalog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to='/oMeni'
-                                className='hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300'>
-                                O nama
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to='/galerija'
-                                className='hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300'>
-                                Galerija
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
+
+
 
                 {/* Desna strana - društvene mreže */}
                 <div className="flex gap-4">

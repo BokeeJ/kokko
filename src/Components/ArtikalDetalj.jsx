@@ -1,29 +1,78 @@
-import { useParams } from "react-router-dom";
-import katalog from "../services/Katalog.js"
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import katalog from '../services/Katalog.js';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import '../styles.css';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 function ArtikalDetalj() {
     const { id } = useParams();
-
-    console.log("ID iz URL-a:", id);
-    console.log("Tip ID-ja:", typeof id);
-    console.log("Svi ID-jevi u katalogu:", katalog.map((k) => k.id));
-
-    console.log("Svi ID-jevi u katalogu:", katalog.map(k => k.id))
-
+    const [fullscreenSlika, setFullscreenSlika] = useState(null);
     const proizvod = katalog.find((item) => item.id === parseInt(id));
 
     if (!proizvod) {
         return <p className="text-white p-10">Proizvod nije pronađen.</p>;
     }
 
+    const slike = Array.isArray(proizvod.slika) ? proizvod.slika : [proizvod.slika];
+
     return (
-        <div className="text-white p-10">
+        <div className="text-white p-10 relative z-0">
             <h2 className="text-3xl mb-4">{proizvod.naziv}</h2>
-            <img src={proizvod.slika} className="w-[300px] mb-4" />
-            <p className="mb-2">Cena: {proizvod.cena},00 RSD</p>
-            <p className="mb-2">Opis: {proizvod.opis}</p>
-            <p className="mb-2">Boje: {proizvod.boja.join(", ")}</p>
-            <p className="mb-2">Veličine: {proizvod.velicina.join(", ")}</p>
+
+            <Swiper
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }}
+                pagination={true}
+                modules={[EffectCoverflow, Pagination]}
+                className="mySwiper z-0"
+            >
+                {slike.map((src, i) => (
+                    <SwiperSlide key={i} className="flex justify-center items-center !w-auto !h-auto">
+                        <img
+                            src={src}
+                            alt={`slika-${i}`}
+                            onClick={() => setFullscreenSlika(src)}
+                            className="max-w-[250px] max-h-[350px] object-cover rounded-xl cursor-pointer pointer-events-auto"
+                        />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
+            <div className="mt-6 space-y-2">
+                <p><span className="text-xl font-bold">Cena:</span> {proizvod.cena},00 RSD</p>
+                <p><span className="text-xl font-bold">Opis:</span> {proizvod.opis}</p>
+                <p><span className="text-xl font-bold">Boje:</span> {proizvod.boja.join(', ')}</p>
+                <p><span className="text-xl font-bold">Veličine:</span> {proizvod.velicina.join(', ')}</p>
+            </div>
+
+            {fullscreenSlika && (
+                <div
+                    className="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999]"
+                    onClick={() => setFullscreenSlika(null)}
+                >
+                    <img src={fullscreenSlika} className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg" />
+                    <button
+                        className="absolute top-5 right-5 text-white text-3xl font-bold"
+                        onClick={() => setFullscreenSlika(null)}
+                    >
+                        ×
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
