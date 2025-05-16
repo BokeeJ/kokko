@@ -22,7 +22,7 @@ function ArtikalDetalj() {
 
     return (
         <div className="text-white p-10 relative z-0">
-            <h2 className="text-3xl mb-4">{proizvod.naziv}</h2>
+            <h2 className="text-pink-300 text-3xl mb-4">{proizvod.naziv}</h2>
 
             <Swiper
                 effect={'coverflow'}
@@ -65,12 +65,12 @@ function ArtikalDetalj() {
                     onClick={() => setFullscreenSlika(null)}
                 >
                     <img src={fullscreenSlika} className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg" />
-                    <button
+                    {/* <button
                         className="absolute top-5 right-5 text-white text-3xl font-bold"
                         onClick={() => setFullscreenSlika(null)}
                     >
                         ×
-                    </button>
+                    </button> */}
                 </div>
             )}
         </div>
