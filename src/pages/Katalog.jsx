@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import katalog from '../services/Katalog'
 import { Link, useOutletContext } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
-
+import Qr from '../services/QrKodKomponenta'
 
 function Katalog() {
     const { setBrojac } = useOutletContext()
@@ -119,6 +119,9 @@ function Katalog() {
                     </div>
                 )
             })}
+            {/* QR kod */}
+
+            <Qr />
         </div>
     )
 }
