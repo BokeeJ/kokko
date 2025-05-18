@@ -84,7 +84,7 @@ function Navbar(props) {
                             <Link
                                 to='/oMeni'
                                 className='hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-full after:transition-all after:duration-300'>
-                                O nama
+                                Iza kamera
                             </Link>
                         </li>
                         <li>

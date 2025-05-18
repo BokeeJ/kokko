@@ -72,7 +72,7 @@ function App() {
       <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
 
       {/* Sadržaj stranica */}
-      <div className="pt-[100px] lg:pt-[200px]">
+      <div>
         <Outlet context={{ brojac, setBrojac }} />
       </div>
 

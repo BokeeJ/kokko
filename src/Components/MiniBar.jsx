@@ -12,7 +12,7 @@ function MiniBar() {
                     Katalog
                 </Link>
                 <Link to={'/oMeni'} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-[50%] after:transition-all after:duration-300">
-                    O meni
+                    Iza kamera
                 </Link>
                 <Link to={'/galerija'} className="cursor-pointer hover:text-pink-200 relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-200 after:w-0 hover:after:w-[50%] after:transition-all after:duration-300">
                     Galerija
