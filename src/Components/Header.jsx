@@ -3,7 +3,7 @@ import '../index.css';
 
 function Header() {
     return (
-        <div className="relative w-full h-full overflow-hidden bg-black flex items-center">
+        <div className="relative w-full h-full overflow-hidden bg-black flex items-center z-[100]">
             <div className="marquee-track">
                 <div className="marquee-text ">
                     Dostava besplatna preko 6.000rsd • Dostava besplatna preko 6.000rsd • Dostava besplatna preko 6.000rsd • Dostava besplatna preko 6.000rsd • Dostava besplatna preko 6.000rsd •

@@ -8,11 +8,9 @@ import {
 import { Link } from 'react-router-dom';
 
 function Navbar(props) {
-
     return (
-        <div className='relative w-full h-[100px] lg:h-[200px] overflow-hidden'>
-            {/* Pozadinska slika */}
-
+        <div className='fixed lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90'>
+            {/* Pozadinska slika samo na desktopu */}
             <img
                 src='/black2.webp'
                 alt='Background'
@@ -21,9 +19,9 @@ function Navbar(props) {
 
             {/* Mobilna verzija */}
             <div className='lg:hidden relative z-10'>
-                <div className='flex justify-center items-center w-full h-[80px] bg-black shadow-md px-5'>
+                <div className='flex justify-center items-center w-full h-[100px] bg-black/80 shadow-md px-5'>
                     {/* Logo */}
-                    <div className=''>
+                    <div>
                         <Link to={'/'}>
                             <img
                                 src='/2.png'
@@ -53,7 +51,7 @@ function Navbar(props) {
             </div>
 
             {/* Desktop verzija */}
-            <div className='hidden lg:flex w-full h-full justify-between items-center px-8 relative z-10'>
+            <div className='hidden lg:flex w-full h-[200px] justify-between items-center px-8 relative z-10'>
                 {/* Logo */}
                 <div className='flex items-center'>
                     <Link to={'/'}>
@@ -61,7 +59,8 @@ function Navbar(props) {
                             src='/2.png'
                             alt='logoKokko'
                             className='w-[200px] h-[140px] object-contain'
-                        /></Link>
+                        />
+                    </Link>
                 </div>
 
                 {/* Navigacija */}
@@ -111,9 +110,10 @@ function Navbar(props) {
                     </a>
                     <Link to='/korpa'>
                         <CiShoppingCart className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
-
                     </Link>
-                    <h6 className='text-white absolute right-5 mt-5 w-4 h-4 flex justify-center items-center bg-red-600 rounded-full'>{props.brojac}</h6>
+                    <h6 className='text-white absolute right-5 mt-5 w-4 h-4 flex justify-center items-center bg-red-600 rounded-full'>
+                        {props.brojac}
+                    </h6>
                 </div>
             </div>
         </div>
