@@ -12,7 +12,7 @@ function Omeni() {
                         <div className="w-full flex justify-center mt-10">
                             <video
                                 controls
-                                className="max-w-[400px] w-full h-[400px] rounded-xl shadow-lg"
+                                className="max-w-[400px] w-full h-[400px] rounded-xl shadow-lg object-cover"
                             >
                                 <source src="/Snimak.mp4" type="video/mp4" />
 
@@ -37,10 +37,10 @@ function Omeni() {
                     </div>
 
                     {/* Dodatne slike ispod */}
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-                        <img src="/sivenje2.jpg" alt="Atelje" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
-                        <img src="/materijal.jpg" alt="Tkanine" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
-                        <img src="/detalji.jpg" alt="Detalji" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-16">
+                        <img src="/black.webp" alt="Atelje" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
+                        <img src="/black2.webp" alt="Tkanine" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
+
                     </div>
                 </div>
             </section>

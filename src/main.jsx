@@ -12,6 +12,7 @@ import PageNotFound from './pages/PageNotFound.jsx'
 import Korpa from './pages/Korpa.jsx'
 import OrderInformation from './services/OrderInformation.jsx'
 import ArtikalDetalj from './Components/ArtikalDetalj.jsx'
+import Hvala from './pages/Hvala.jsx'
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: 'katalog/:id',
         element: <ArtikalDetalj />
+      },
+      {
+        path: 'hvala',
+        element: <Hvala />
       }
     ]
   }

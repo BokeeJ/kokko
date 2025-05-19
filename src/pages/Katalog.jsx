@@ -26,7 +26,7 @@ function Katalog() {
         korpa.push({
             id: Number(item.id),
             naziv: item.naziv,
-            slika: item.slika,
+            slika: item.slika[0],
             cena: item.cena,
             boja: selekcija.boja || item.boja[0],
             velicina: selekcija.velicina || item.velicina[0]

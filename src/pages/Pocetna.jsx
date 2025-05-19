@@ -31,12 +31,12 @@ function Pocetna() {
                         alt="chickBluza"
                     />
                     <div className="absolute inset-0 flex justify-center items-center">
-                        <motion.h2
+                        <Link className='absolute' to="/katalog"> <motion.h2
                             variants={fadeInDelayed(0.4)}
-                            className="text-3xl text-white font-bold shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200"
+                            className="text-2xl text-white font-bold  shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200"
                         >
-                            NOVA KOLEKCIJA
-                        </motion.h2>
+                            KATALOG
+                        </motion.h2> </Link>
                     </div>
                 </motion.div>
 
@@ -53,12 +53,10 @@ function Pocetna() {
                     >
                         <img
                             className="w-full min-h-[200px] object-cover transition-transform duration-1000 transform group-hover:scale-110 rounded-xl"
-                            src="/slikabr1.webp"
+                            src="/black2.webp"
                             alt="chichRoze"
                         />
-                        <h2 className="text-2xl text-white font-bold absolute shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200">
-                            SNIŽENJE / AKCIJE
-                        </h2>
+
                     </motion.div>
 
                     {/* Druga slika */}

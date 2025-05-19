@@ -1,51 +1,104 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
+import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom';
+
+
 
 function OrderInformation() {
     const [poruka, setPoruka] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate()
+    const { setBrojac } = useOutletContext();
+
+
+
     const handleSubmit = (e) => {
-        e.preventDefault()
-        const form = e.target
-        const data = {
-            ime: form.ime.value,
-            prezime: form.prezime.value,
-            adresa: form.adresa.value,
-            telefon: form.telefon.value,
-        }
-        console.log(data);
-        form.reset();
-        setPoruka(true)
-        setTimeout(() => setPoruka(false), 2000)
-    }
+        e.preventDefault();
+        setLoading(true);
+
+        const form = e.target;
 
 
+        const korpa = JSON.parse(localStorage.getItem("korpa")) || [];
 
+
+        let proizvodiTekst = "";
+        let ukupno = 0;
+        korpa.forEach((item) => {
+            proizvodiTekst += `- ${item.naziv}, Boja: ${item.boja}, Veličina: ${item.velicina} — ${item.cena} RSD\n`;
+            ukupno += item.cena;
+        });
+        proizvodiTekst += `\nUkupno: ${ukupno} RSD`;
+
+
+        form.proizvodi.value = proizvodiTekst;
+
+        emailjs.sendForm(
+            'service_qby22un',
+            'template_i9sofyc',
+            form,
+            'V-19CuRw6fsHeW7fW'
+        )
+            .then(() => {
+                setLoading(false);
+                setPoruka(true);
+                form.reset();
+                setTimeout(() => {
+                    setPoruka(false);
+                    navigate('/hvala');
+                }, 2500);
+                localStorage.removeItem("korpa");
+                localStorage.removeItem("brojac");
+                setBrojac(0);
+
+
+            })
+            .catch((error) => {
+                setLoading(false);
+                console.error('Greška pri slanju:', error);
+                alert("Greška pri slanju porudžbine.");
+            });
+    };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-5 m-5 text-black">
-            <input className="w-[60%] h-[50px]  p-2 text-l" type="text" name="ime" placeholder="Unesite ime.." required />
-            <input className="w-[60%] h-[50px]  p-2 text-l" type="text" name="prezime" placeholder="Unesite prezime.." required />
-            <input className="w-[60%] h-[50px]  p-2 text-l" type="text" name="adresa" placeholder="Unesite adresu.." required />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-5 m-5 text-black max-w-xl mx-auto">
+            <input type="text" name="ime" placeholder="Unesite ime..." required className="w-full h-[50px] p-2 rounded" />
+            <input type="text" name="prezime" placeholder="Unesite prezime..." required className="w-full h-[50px] p-2 rounded" />
+            <input type="text" name="adresa" placeholder="Unesite adresu..." required className="w-full h-[50px] p-2 rounded" />
+            <input type="text" name="grad" placeholder="Unesite grad..." required className="w-full h-[50px] p-2 rounded" />
+            <input type="email" className='w-full h-[50px] p-2 rounded' name="email" placeholder="Vaš email..." />
+
             <input
-                className="w-[60%] h-[50px]  p-2 text-l"
-                type="text"
-                name="grad"
-                placeholder="Unesite grad.."
-                required
-            />
-            <input
-                className="w-[60%] h-[50px] p-2 text-l"
                 type="tel"
                 name="telefon"
-                placeholder="Unesite broj telefona.."
+                placeholder="Unesite broj telefona..."
                 pattern="[0-9+ ]*"
                 maxLength={15}
                 required
+                className="w-full h-[50px] p-2 rounded"
                 autoComplete="tel"
             />
-            <button type="submit" className="w-[40%] bg-pink-500 text-white font-bold py-2 rounded hover:bg-pink-600">
-                Poruči
+            <textarea
+                name="napomena"
+                placeholder="Napomena (opcionalno)"
+                rows={3}
+                className="w-full p-2 rounded resize-none"
+            ></textarea>
+
+
+            <input type="hidden" name="proizvodi" />
+
+            <button
+                type="submit"
+                disabled={loading}
+                className={`w-full bg-pink-500 text-white font-bold py-2 rounded hover:bg-pink-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+            >
+                {loading ? 'Slanje...' : 'Poruči'}
             </button>
+
             <AnimatePresence>
                 {poruka && (
                     <motion.div
@@ -54,14 +107,14 @@ function OrderInformation() {
                         exit={{ opacity: 0, y: -30 }}
                         transition={{ duration: 0.4 }}
                         className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-                       bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl z-[1000] text-xl"
+                           bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl z-[1000] text-xl"
                     >
                         ✅ Poručeno!
                     </motion.div>
                 )}
             </AnimatePresence>
         </form>
-    )
+    );
 }
 
-export default OrderInformation
+export default OrderInformation;

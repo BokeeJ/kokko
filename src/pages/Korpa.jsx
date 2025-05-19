@@ -36,7 +36,11 @@ function Korpa() {
 
                         <div key={i} className="flex gap-4 bg-black p-4 rounded-xl items-center">
                             <Link to={`/katalog/${artikal.id}`}>
-                                <img src={artikal.slika} alt={artikal.naziv} className="w-[100px] h-[120px] object-cover" /></Link>
+                                <img
+                                    src={artikal.slika}
+                                    alt={artikal.naziv}
+                                    className="w-[100px] h-[120px] object-cover"
+                                /></Link>
                             <div className="flex flex-col gap-1 text-white">
                                 <p>{artikal.naziv}</p>
                                 <p>Boja: {artikal.boja}</p>
