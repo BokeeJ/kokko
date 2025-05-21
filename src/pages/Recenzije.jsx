@@ -19,7 +19,9 @@ function Recenzije() {
         ))
     }
 
-    const recenzijeZaPrikaz = prikaziSve ? recenzije : recenzije.slice(0, 2)
+    const recenzijeZaPrikaz = Array.isArray(recenzije)
+        ? (prikaziSve ? recenzije : recenzije.slice(0, 2))
+        : [];
 
     return (
         <div
