@@ -32,7 +32,7 @@ function Recenzije() {
             style={{ backgroundImage: "url('/black2.webp')" }}
         >
             <div className="bg-black/70 p-6 rounded-xl">
-                <h2 className="text-3xl mb-4 text-center">Recenzije kupaca</h2>
+                <h2 className="text-3xl mb-4 text-center">Utisci</h2>
 
                 <div className="space-y-4 mb-8">
                     {recenzijeZaPrikaz.map((r, i) => (
