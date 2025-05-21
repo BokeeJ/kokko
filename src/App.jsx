@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import ScrollToTop from "./services/ScrollToTop";
 import { CiMenuFries } from "react-icons/ci";
+import FooterEnd from "./Components/FooterEnd";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,6 +86,7 @@ function App() {
       {/* Footer */}
       <Footer brojac={brojac} />
       <ScrollToTop />
+      <FooterEnd />
     </div>
   );
 }

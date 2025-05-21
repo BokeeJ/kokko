@@ -11,13 +11,13 @@ function Footer(props) {
             <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
 
                 {/* Logo i copyright */}
-                <div className="text-center md:text-left">
+                <div className="flex flex-col items-center">
                     <img
                         src="/2.png"
                         alt="logoKokko"
-                        className="w-[140px] h-[110px] object-contain mx-auto md:mx-0"
+                        className="w-[140px] h-[110px] object-contain"
                     />
-                    <p className="text-sm mt-2">© 2025 KOKKO. Sva prava zadržana.</p>
+
                 </div>
 
                 {/* Navigacija / linkovi */}
@@ -47,8 +47,11 @@ function Footer(props) {
                         <p className="absolute -top-1 -right-2 text-[10px] w-4 h-4 flex justify-center items-center bg-pink-600 rounded-full text-white">
                             {props.brojac}
                         </p>
+
                     </Link>
+
                 </div>
+
 
             </div>
         </footer>
