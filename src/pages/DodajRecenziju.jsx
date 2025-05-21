@@ -16,6 +16,7 @@ function DodajRecenziju() {
         })
             .then(res => res.json())
             .then(data => {
+                console.log('Odgovor servera:', data)
                 if (data.success) {
                     setPoruka('✅ Hvala na recenziji!')
                     setForma({ ime: '', komentar: '', ocena: 5 })
@@ -23,6 +24,7 @@ function DodajRecenziju() {
                     setPoruka('❌ Došlo je do greške.')
                 }
             })
+
             .catch(() => setPoruka('❌ Server greška.'))
             .finally(() => setLoading(false))
     }
