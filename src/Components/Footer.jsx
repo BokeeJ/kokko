@@ -29,7 +29,7 @@ function Footer(props) {
                 </div>
 
                 {/* Društvene mreže i korpa */}
-                <div className="flex justify-center md:justify-end gap-4 relative">
+                <div className="flex justify-center md:justify-end gap-4">
                     <a
                         href="https://www.instagram.com/kokko.design"
                         target="_blank"
@@ -37,16 +37,19 @@ function Footer(props) {
                     >
                         <CiInstagram className="text-3xl hover:text-pink-400 transition" />
                     </a>
+
                     <a href="#">
                         <CiFacebook className="text-3xl hover:text-pink-400 transition" />
                     </a>
-                    <Link to='/korpa'>
-                        <CiShoppingCart className='text-3xl hover:text-pink-400 transition' />
+
+                    <Link to="/korpa" className="relative">
+                        <CiShoppingCart className="text-3xl hover:text-pink-400 transition" />
+                        <p className="absolute -top-1 -right-2 text-[10px] w-4 h-4 flex justify-center items-center bg-pink-600 rounded-full text-white">
+                            {props.brojac}
+                        </p>
                     </Link>
-                    <p className='text-white absolute -right-2 -top-2 text-[10px] w-4 h-4 flex justify-center items-center bg-pink-600 rounded-full'>
-                        {props.brojac}
-                    </p>
                 </div>
+
             </div>
         </footer>
     );

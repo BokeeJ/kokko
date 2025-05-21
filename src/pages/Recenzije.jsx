@@ -25,7 +25,7 @@ function Recenzije() {
 
     return (
         <div
-            className="p-5 max-w-2xl mx-auto text-white bg-cover bg-center rounded-xl"
+            className="p-5 max-w-2xl mx-auto text-white bg-cover bg-center rounded-xl w-full"
             style={{ backgroundImage: "url('/black2.webp')" }}
         >
             <div className="bg-black/70 p-6 rounded-xl">
