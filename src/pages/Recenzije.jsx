@@ -7,7 +7,10 @@ function Recenzije() {
     useEffect(() => {
         fetch('https://kokko-backend.onrender.com/api/recenzije')
             .then(res => res.json())
-            .then(data => setRecenzije(data))
+            .then(data => {
+                const obrnuto = data.reverse();
+                setRecenzije(obrnuto)
+            })
             .catch(err => console.error('Greška pri učitavanju:', err))
     }, [])
 
