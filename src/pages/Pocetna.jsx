@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Recenzije from './Recenzije.jsx'
 
 function Pocetna() {
     const fadeInUp = {
@@ -14,109 +15,99 @@ function Pocetna() {
     })
 
     return (
-        <div>
-            <div className="p-10 w-full flex gap-5 lg:flex-row flex-col relative overflow-hidden">
-
-                {/* Leva strana */}
-                <motion.div
-                    variants={fadeInUp}
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    className="overflow-hidden lg:w-[50%] lg:h-[940px] relative group rounded-xl"
-                >
-                    <img
-                        className="w-full h-full object-cover transition-transform duration-1000 transform group-hover:scale-110 rounded-xl"
-                        src="/slikabr2.webp"
-                        alt="chickBluza"
-                    />
-                    <div className="absolute inset-0 flex justify-center items-center">
-                        <Link className='absolute' to="/katalog"> <motion.h2
-                            variants={fadeInDelayed(0.4)}
-                            className="text-2xl text-white font-bold  shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200"
-                        >
-                            KATALOG
-                        </motion.h2> </Link>
-                    </div>
-                </motion.div>
-
-                {/* Desna strana */}
-                <div className="flex flex-col lg:w-[50%] h-[940px] gap-3">
-
-                    {/* Prva slika */}
-                    <motion.div
-                        variants={fadeInDelayed(0.2)}
+        <div className="bg-black">
+            {/* HERO SEKCIJA */}
+            <section className="relative h-[90vh] w-full">
+                <img src="/slikabr2.webp" alt="hero" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+                <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white px-4">
+                    <motion.h1
+                        variants={fadeInUp}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true }}
-                        className="relative flex justify-center items-center overflow-hidden group rounded-xl"
+                        className="text-4xl md:text-6xl font-bold mb-6"
                     >
-                        <img
-                            className="w-full min-h-[200px] object-cover transition-transform duration-1000 transform group-hover:scale-110 rounded-xl"
-                            src="/black2.webp"
-                            alt="chichRoze"
-                        />
-
-                    </motion.div>
-
-                    {/* Druga slika */}
-                    <motion.div
+                        Haljine i bluze koje govore
+                    </motion.h1>
+                    <motion.p
                         variants={fadeInDelayed(0.4)}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true }}
-                        className="relative flex justify-center items-center overflow-hidden group rounded-xl"
+                        className="text-lg max-w-xl mb-6"
                     >
-                        <img
-                            className="w-full min-h-[200px] object-cover transition-transform duration-1000 transform group-hover:scale-110 rounded-2xl"
-                            src="/slikabr4.webp"
-                            alt="chichZuta"
-                        />
-                        <Link className='absolute' to="/katalog">
-                            <h2 className="text-2xl text-white font-bold  shadow-lg shadow-black rounded-xl p-4 transition-all cursor-pointer hover:text-pink-200">
-                                KATALOG
-                            </h2>
+                        Unikatni komadi izrađeni ručno sa puno pažnje, duše i emocije.
+                    </motion.p>
+                    <motion.div
+                        variants={fadeInDelayed(0.6)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="flex gap-4"
+                    >
+                        <Link to="/katalog">
+                            <button className="px-6 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
+                                Pogledaj katalog
+                            </button>
                         </Link>
-
+                        <Link to="/Omeni">
+                            <button className="px-6 py-2 border border-white text-white rounded hover:bg-white hover:text-black transition">
+                                Iza kamere
+                            </button>
+                        </Link>
                     </motion.div>
                 </div>
-            </div>
+            </section>
 
-            {/* Opis sekcija */}
-            <motion.div
-                variants={fadeInDelayed(0.6)}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                className="relative flex flex-col justify-center items-center gap-5 p-10 overflow-hidden h-[400px]"
-            >
-                {/* VIDEO */}
-                <video
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+            {/* MINI GALERIJA */}
+            <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+                {["/IMG_1512.webp", "/IMG_1514.webp", "/slikabr3.webp", "/slikabr4.webp"].map((src, i) => (
+                    <motion.div
+                        key={i}
+                        variants={fadeInDelayed(0.2 + i * 0.1)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="overflow-hidden rounded-xl group cursor-pointer"
+                    >
+                        <img
+                            src={src}
+                            alt={`preview-${i}`}
+                            className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                    </motion.div>
+                ))}
+            </section>
+
+            {/* POZIV NA AKCIJU */}
+            <section className="text-center py-16 px-4 bg-black">
+                <motion.h2
+                    variants={fadeInDelayed(0.2)}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    className="text-3xl text-white mb-4"
                 >
-                    <source src="/kVideo.mp4" type="video/mp4" />
-                    Tvoj browser ne podržava video tag.
-                </video>
-
-                {/* TAMNI SLOJ PREKO VIDEA */}
-                <div className="absolute inset-0 bg-black/50 z-[1]"></div>
-
-                {/* SADRŽAJ */}
-                <div className="relative z-10 text-center">
-                    <h2 className="text-4xl text-pink-300 font-bold  rounded-xl p-4">
-                        O KOKKO
-                    </h2>
-                    <p className="text-lg text-white font-light  rounded-xl p-4 max-w-3xl">
-                        <span className="text-pink-300">KOKKO</span> je brend koji se fokusira na stvaranje jedinstvenih i modernih komada odeće.
-                        Naša misija je da inspirišemo ljude da izraze svoju ličnost kroz modu.
-                    </p>
-                </div>
-            </motion.div>
-
+                    Svaka žena zaslužuje da zablista
+                </motion.h2>
+                <motion.p
+                    variants={fadeInDelayed(0.4)}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                    className="text-pink-300 text-lg mb-6"
+                >
+                    Tvoja priča počinje ovde.
+                </motion.p>
+                <Link to="/katalog">
+                    <button className="px-6 py-2 bg-pink-500 text-white rounded-xl hover:bg-pink-600 transition">
+                        Pogledaj ponudu
+                    </button>
+                </Link>
+            </section>
+            <section className="bg-zinc-900 py-10">
+                <Recenzije />
+            </section>
         </div>
     )
 }

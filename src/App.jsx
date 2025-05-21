@@ -3,6 +3,7 @@ import MiniBar from "./Components/MiniBar";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import ScrollControl from "./services/ScrollControl";
+import DefaultTopScroll from "./services/DefaultTopScroll";
 import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import ScrollToTop from "./services/ScrollToTop";
@@ -73,6 +74,7 @@ function App() {
 
       {/* Sadržaj stranica */}
       <div>
+        <DefaultTopScroll />
         <Outlet context={{ brojac, setBrojac }} />
       </div>
 
