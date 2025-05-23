@@ -27,7 +27,7 @@ function Pocetna() {
                         viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-bold mb-6"
                     >
-                        Haljine i bluze koje govore
+                        Handmade. Every stitch.
                     </motion.h1>
                     <motion.p
                         variants={fadeInDelayed(0.4)}
@@ -36,7 +36,7 @@ function Pocetna() {
                         viewport={{ once: true }}
                         className="text-lg max-w-xl mb-6"
                     >
-                        Unikatni komadi izrađeni ručno sa puno pažnje, duše i emocije.
+                        <span className='font-mono'>KOMADI SA RUKOPISOM</span>
                     </motion.p>
                     <motion.div
                         variants={fadeInDelayed(0.6)}
@@ -86,9 +86,9 @@ function Pocetna() {
                     initial="initial"
                     whileInView="animate"
                     viewport={{ once: true }}
-                    className="text-3xl text-white mb-4"
+                    className="text-3xl text-white mb-4 font-bold"
                 >
-                    Svaka žena zaslužuje da zablista
+                    Nosi <span className='text-pink-300'>KOKKO</span>, nosi PRIČU
                 </motion.h2>
                 <motion.p
                     variants={fadeInDelayed(0.4)}

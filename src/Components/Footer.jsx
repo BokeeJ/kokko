@@ -25,7 +25,7 @@ function Footer(props) {
                     <Link to="/katalog" className="hover:text-pink-400 transition">Katalog</Link>
                     <Link to="/oMeni" className="hover:text-pink-400 transition">O nama</Link>
                     <Link to="/galerija" className="hover:text-pink-400 transition">Galerija</Link>
-                    <Link to="/dodajRecenziju" className="hover:text-pink-400 transition font-semibold">Ostavi recenziju</Link>
+                    <Link to="/dodajRecenziju" className="hover:text-pink-400 transition font-semibold text-pink-300">Ostavi recenziju</Link>
                 </div>
 
                 {/* Društvene mreže i korpa */}

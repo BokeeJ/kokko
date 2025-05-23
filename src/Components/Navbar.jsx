@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar(props) {
     return (
-        <div className='fixed lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90'>
+        <div className='fixed lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90 overflow-x-hidden'>
             {/* Pozadinska slika samo na desktopu */}
             <img
                 src='/black2.webp'
@@ -17,44 +17,48 @@ function Navbar(props) {
                 className='absolute inset-0 w-full h-full object-cover z-0 lg:flex hidden'
             />
 
+
             {/* Mobilna verzija */}
             <div className='lg:hidden relative z-10'>
-                <div className='flex justify-center items-center w-full h-[100px] bg-black/80 shadow-md px-5'>
-                    {/* Logo */}
-                    <div>
-                        <Link to={'/'}>
-                            <img
-                                src='/2.png'
-                                alt='logoKokko'
-                                className='w-[120px] h-[90px] object-contain'
-                            />
-                        </Link>
-                    </div>
+                <div className='relative w-full h-[100px] bg-black/80 shadow-md px-5 flex items-center justify-between'>
 
-                    {/* Ikonice */}
-                    <div className='flex gap-3 right-3 absolute'>
+                    {/* Logo centriran preko absolute + translate-x-1/2 */}
+                    <Link to='/' className='absolute left-1/2 transform -translate-x-1/2'>
+                        <img
+                            src='/2.png'
+                            alt='logoKokko'
+                            className='h-[90px] object-contain'
+                        />
+                    </Link>
+
+                    {/* Ikonice desno */}
+                    <div className='flex items-center gap-4 ml-auto'>
                         <a
                             href='https://www.instagram.com/kokko.design'
                             target='_blank'
                             rel='noopener noreferrer'>
                             <CiInstagram className='text-xl text-pink-200 hover:text-pink-500 cursor-pointer' />
                         </a>
-                        <a href='#'>
-                            <CiFacebook className='text-xl text-pink-200 hover:text-pink-500 cursor-pointer' />
-                        </a>
-                        <Link to='/korpa'>
-                            <CiShoppingCart className='text-xl text-pink-200 hover:text-pink-500 cursor-pointer' />
-                        </Link>
-                        <p className='text-white absolute text-[10px] right-0 mt-4 w-3 h-3 flex justify-center items-center bg-pink-600 rounded-full'>{props.brojac}</p>
+
+                        <div className='relative'>
+                            <Link to='/korpa'>
+                                <CiShoppingCart className='text-xl text-pink-200 hover:text-pink-500 cursor-pointer' />
+                            </Link>
+                            <span className='absolute -top-1 -right-1 text-[10px] w-3 h-3 flex items-center justify-center bg-pink-600 text-white rounded-full'>
+                                {props.brojac}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
 
             {/* Desktop verzija */}
             <div className='hidden lg:flex w-full h-[200px] justify-between items-center px-8 relative z-10'>
                 {/* Logo */}
                 <div className='flex items-center'>
-                    <Link to={'/'}>
+                    <Link to='/'>
                         <img
                             src='/2.png'
                             alt='logoKokko'
@@ -98,7 +102,7 @@ function Navbar(props) {
                 </div>
 
                 {/* Ikonice */}
-                <div className='flex gap-4 items-center'>
+                <div className='flex gap-4 items-center relative'>
                     <a
                         href='https://www.instagram.com/kokko.design'
                         target='_blank'
@@ -108,12 +112,14 @@ function Navbar(props) {
                     <a href='#'>
                         <CiFacebook className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
                     </a>
-                    <Link to='/korpa'>
-                        <CiShoppingCart className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
-                    </Link>
-                    <h6 className='text-white absolute right-5 mt-5 w-4 h-4 flex justify-center items-center bg-pink-600 rounded-full'>
-                        {props.brojac}
-                    </h6>
+                    <div className='relative'>
+                        <Link to='/korpa'>
+                            <CiShoppingCart className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
+                        </Link>
+                        <h6 className='text-white absolute -top-2 -right-2 w-4 h-4 flex justify-center items-center bg-pink-600 rounded-full text-xs'>
+                            {props.brojac}
+                        </h6>
+                    </div>
                 </div>
             </div>
         </div>

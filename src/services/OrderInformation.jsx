@@ -3,26 +3,32 @@ import { motion, AnimatePresence } from "framer-motion"
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom'
 import { useOutletContext } from 'react-router-dom';
-
-
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function OrderInformation() {
     const [poruka, setPoruka] = useState(false);
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate()
+    const [captcha, setCaptcha] = useState(null);
+    const navigate = useNavigate();
     const { setBrojac } = useOutletContext();
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
+        if (e.target.broj_faksa.value !== "") {
+            console.warn("Spam detektovan: honeypot nije prazan.");
+            setLoading(false);
+            return;
+        }
+
+        if (!captcha) {
+            alert("Molimo potvrdite da niste robot.");
+            setLoading(false);
+            return;
+        }
 
         const form = e.target;
-
-
         const korpa = JSON.parse(localStorage.getItem("korpa")) || [];
-
 
         let proizvodiTekst = "";
         let ukupno = 0;
@@ -31,7 +37,6 @@ function OrderInformation() {
             ukupno += item.cena;
         });
         proizvodiTekst += `\nUkupno: ${ukupno} RSD`;
-
 
         form.proizvodi.value = proizvodiTekst;
 
@@ -52,8 +57,7 @@ function OrderInformation() {
                 localStorage.removeItem("korpa");
                 localStorage.removeItem("brojac");
                 setBrojac(0);
-
-
+                setCaptcha(null);
             })
             .catch((error) => {
                 setLoading(false);
@@ -69,7 +73,6 @@ function OrderInformation() {
             <input type="text" name="adresa" placeholder="Unesite adresu..." required className="w-full h-[50px] p-2 rounded" />
             <input type="text" name="grad" placeholder="Unesite grad..." required className="w-full h-[50px] p-2 rounded" />
             <input type="email" className='w-full h-[50px] p-2 rounded' name="email" placeholder="Vaš email..." />
-
             <input
                 type="tel"
                 name="telefon"
@@ -88,13 +91,25 @@ function OrderInformation() {
             ></textarea>
 
 
+            <input
+                type="text"
+                name="broj_faksa"
+                autoComplete="off"
+                className="hidden"
+            />
+
+            {/* Google reCAPTCHA */}
+            <ReCAPTCHA
+                sitekey="6Le1lEYrAAAAAMSAsTmeqRvbRxKNgYZ-NlD-_kIf"
+                onChange={(value) => setCaptcha(value)}
+            />
+
             <input type="hidden" name="proizvodi" />
 
             <button
                 type="submit"
                 disabled={loading}
-                className={`w-full bg-pink-500 text-white font-bold py-2 rounded hover:bg-pink-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
+                className={`w-full bg-pink-500 text-white font-bold py-2 rounded hover:bg-pink-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
                 {loading ? 'Slanje...' : 'Poruči'}
             </button>

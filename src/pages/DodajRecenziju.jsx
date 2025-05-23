@@ -1,13 +1,27 @@
 import React, { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 function DodajRecenziju() {
     const [forma, setForma] = useState({ ime: '', komentar: '', ocena: 5 })
     const [poruka, setPoruka] = useState('')
     const [loading, setLoading] = useState(false)
+    const [captcha, setCaptcha] = useState(null)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
+
+        if (e.target.faks_broj.value !== "") {
+            setPoruka("❌ Spam pokušaj blokiran.")
+            setLoading(false)
+            return
+        }
+
+        if (!captcha) {
+            setPoruka("❌ Molimo potvrdite da niste robot.")
+            setLoading(false)
+            return
+        }
 
         fetch('https://kokko-backend.onrender.com/api/recenzije', {
             method: 'POST',
@@ -24,7 +38,6 @@ function DodajRecenziju() {
                     setPoruka('❌ Došlo je do greške.')
                 }
             })
-
             .catch(() => setPoruka('❌ Server greška.'))
             .finally(() => setLoading(false))
     }
@@ -43,6 +56,7 @@ function DodajRecenziju() {
                     onChange={e => setForma({ ...forma, ime: e.target.value })}
                     required
                 />
+
                 <textarea
                     name="komentar"
                     placeholder="Vaš komentar"
@@ -58,12 +72,26 @@ function DodajRecenziju() {
                     name="ocena"
                     className="p-2 rounded text-black w-[100px]"
                     value={forma.ocena}
-                    onChange={e => setForma({ ...forma, ocena: e.target.value })}
+                    onChange={e => setForma({ ...forma, ocena: parseInt(e.target.value) })}
                 >
                     {[5, 4, 3, 2, 1].map((val) => (
                         <option key={val} value={val}>{val}</option>
                     ))}
                 </select>
+
+                {/* Honeypot polje */}
+                <input
+                    type="text"
+                    name="faks_broj"
+                    autoComplete="off"
+                    className="hidden"
+                />
+
+                {/* reCAPTCHA */}
+                <ReCAPTCHA
+                    sitekey="6Le1lEYrAAAAAMSAsTmeqRvbRxKNgYZ-NlD-_kIf"
+                    onChange={(value) => setCaptcha(value)}
+                />
 
                 <button
                     type="submit"
@@ -72,6 +100,7 @@ function DodajRecenziju() {
                 >
                     {loading ? 'Slanje...' : 'Pošalji recenziju'}
                 </button>
+
                 {poruka && <p className="text-sm mt-2 text-center">{poruka}</p>}
             </form>
         </div>
