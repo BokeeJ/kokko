@@ -30,7 +30,7 @@ function DodajRecenziju() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Odgovor servera:', data)
+                console.log('📩 Odgovor servera:', data) // <-- bitno za debug
                 if (data.success) {
                     setPoruka('✅ Hvala na recenziji!')
                     setForma({ ime: '', komentar: '', ocena: 5 })
@@ -38,7 +38,10 @@ function DodajRecenziju() {
                     setPoruka('❌ Došlo je do greške.')
                 }
             })
-            .catch(() => setPoruka('❌ Server greška.'))
+            .catch(err => {
+                console.error('❌ Fetch greška:', err) // <-- uhvati fetch grešku
+                setPoruka('❌ Server greška.')
+            })
             .finally(() => setLoading(false))
     }
 
