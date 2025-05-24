@@ -80,30 +80,46 @@ function Pocetna() {
             </section>
 
             {/* POZIV NA AKCIJU */}
-            <section className="text-center py-16 px-4 bg-black">
-                <motion.h2
-                    variants={fadeInDelayed(0.2)}
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    className="text-3xl text-white mb-4 font-bold"
+            <section className="relative text-center py-16 px-4 bg-black overflow-hidden">
+                {/* VIDEO POZADINA */}
+                <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover object-center z-0 lg:hidden"
                 >
-                    Nosi <span className='text-pink-300'>KOKKO</span>, nosi PRIČU
-                </motion.h2>
-                <motion.p
-                    variants={fadeInDelayed(0.4)}
-                    initial="initial"
-                    whileInView="animate"
-                    viewport={{ once: true }}
-                    className="text-pink-300 text-lg mb-6"
-                >
-                    Tvoja priča počinje ovde.
-                </motion.p>
-                <Link to="/katalog">
-                    <button className="px-6 py-2 bg-pink-500 text-white rounded-xl hover:bg-pink-600 transition">
-                        Pogledaj ponudu
-                    </button>
-                </Link>
+                    <source src="/kVideo.mp4" type="video/mp4" />
+
+                </video>
+
+                {/* SADRŽAJ */}
+                <div className="relative z-10">
+                    <motion.h2
+                        variants={fadeInDelayed(0.2)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="text-3xl text-white mb-4 font-bold"
+                    >
+                        Nosi <span className='text-pink-300'>KOKKO</span>, nosi PRIČU
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeInDelayed(0.4)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="text-pink-300 text-lg mb-6"
+                    >
+                        Tvoja priča počinje ovde.
+                    </motion.p>
+                    <Link to="/katalog">
+                        <button className="px-6 py-2 bg-pink-500 text-white rounded-xl hover:bg-pink-600 transition">
+                            Pogledaj ponudu
+                        </button>
+                    </Link>
+                </div>
             </section>
             <section className="bg-zinc-900 py-10">
                 <Recenzije />

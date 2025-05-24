@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html,
 body {
 	overflow-x: hidden;
 }
@@ -35,7 +36,7 @@ body {
 }
 .marquee-track {
 	display: flex;
-	width: fit-content;
+	min-width: 100%;
 	animation: scroll-left 20s linear infinite;
 }
 
