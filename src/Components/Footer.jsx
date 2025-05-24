@@ -13,7 +13,7 @@ function Footer(props) {
                 {/* Logo i copyright */}
                 <div className="flex flex-col items-center">
                     <img
-                        src="/2.png"
+                        src="/2.webp"
                         alt="logoKokko"
                         className="w-[140px] h-[110px] object-contain"
                     />
@@ -22,10 +22,11 @@ function Footer(props) {
 
                 {/* Navigacija / linkovi */}
                 <div className="flex flex-col items-center text-center gap-2">
+                    <Link to='/' className="hover:text-pink-400 transition">Početna</Link>
                     <Link to="/katalog" className="hover:text-pink-400 transition">Katalog</Link>
                     <Link to="/oMeni" className="hover:text-pink-400 transition">O nama</Link>
                     <Link to="/galerija" className="hover:text-pink-400 transition">Galerija</Link>
-                    <Link to="/dodajRecenziju" className="hover:text-pink-400 transition font-semibold text-pink-300">Ostavi recenziju</Link>
+                    <Link to="/dodajRecenziju" className="hover:text-pink-400 transition font-bold text-pink-300">Ostavi recenziju</Link>
                 </div>
 
                 {/* Društvene mreže i korpa */}
@@ -38,9 +39,7 @@ function Footer(props) {
                         <CiInstagram className="text-3xl hover:text-pink-400 transition" />
                     </a>
 
-                    <a href="#">
-                        <CiFacebook className="text-3xl hover:text-pink-400 transition" />
-                    </a>
+
 
                     <Link to="/korpa" className="relative">
                         <CiShoppingCart className="text-3xl hover:text-pink-400 transition" />

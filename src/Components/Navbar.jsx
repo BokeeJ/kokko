@@ -22,10 +22,9 @@ function Navbar(props) {
             <div className='lg:hidden relative z-10'>
                 <div className='relative w-full h-[100px] bg-black/80 shadow-md px-5 flex items-center justify-between'>
 
-                    {/* Logo centriran preko absolute + translate-x-1/2 */}
                     <Link to='/' className='absolute left-1/2 transform -translate-x-1/2'>
                         <img
-                            src='/2.png'
+                            src='/2.webp'
                             alt='logoKokko'
                             className='h-[90px] object-contain'
                         />
@@ -60,7 +59,7 @@ function Navbar(props) {
                 <div className='flex items-center'>
                     <Link to='/'>
                         <img
-                            src='/2.png'
+                            src='/2.webp'
                             alt='logoKokko'
                             className='w-[200px] h-[140px] object-contain'
                         />
@@ -109,9 +108,7 @@ function Navbar(props) {
                         rel='noopener noreferrer'>
                         <CiInstagram className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
                     </a>
-                    <a href='#'>
-                        <CiFacebook className='text-3xl text-white hover:text-pink-300 cursor-pointer' />
-                    </a>
+
                     <div className='relative'>
                         <Link to='/korpa'>
                             <CiShoppingCart className='text-3xl text-white hover:text-pink-300 cursor-pointer' />

@@ -35,7 +35,7 @@ function DodajRecenziju() {
                     setPoruka('✅ Hvala na recenziji!')
                     setForma({ ime: '', komentar: '', ocena: 5 })
                 } else {
-                    setPoruka('❌ Došlo je do greške.')
+                    setPoruka('❌ Već ste ostavili recenziju.')
                 }
             })
             .catch(err => {
