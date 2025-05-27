@@ -110,7 +110,7 @@ function Pocetna() {
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true }}
-                        className="text-pink-300 text-lg mb-6"
+                        className="text-pink-300 text-lg mb-6 font-dives"
                     >
                         Tvoja priča počinje ovde.
                     </motion.p>

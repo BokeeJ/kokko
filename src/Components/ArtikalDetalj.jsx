@@ -65,12 +65,7 @@ function ArtikalDetalj() {
                     onClick={() => setFullscreenSlika(null)}
                 >
                     <img src={fullscreenSlika} className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg" />
-                    {/* <button
-                        className="absolute top-5 right-5 text-white text-3xl font-bold"
-                        onClick={() => setFullscreenSlika(null)}
-                    >
-                        ×
-                    </button> */}
+
                 </div>
             )}
         </div>

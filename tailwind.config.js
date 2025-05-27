@@ -5,7 +5,13 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                bebas: ['"Bebas Neue"', 'sans-serif'],
+                pacifico: ['"Pacifico"', 'cursive'],
+                dives: ['"Noto Serif Dives Akuru"', 'serif'],
+            },
+        },
     },
     plugins: [],
 }

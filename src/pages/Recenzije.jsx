@@ -50,7 +50,7 @@ function Recenzije() {
                             onClick={() => setPrikaziSve(!prikaziSve)}
                             className="text-pink-400 hover:text-pink-200 underline"
                         >
-                            {prikaziSve ? 'Zatvori recenzije' : 'Prikaži sve recenzije'}
+                            {prikaziSve ? 'Zatvori utiske' : 'Prikaži sve utiske'}
                         </button>
                     </div>
                 )}

@@ -13,7 +13,7 @@ function Footer(props) {
                 {/* Logo i copyright */}
                 <div className="flex flex-col items-center">
                     <img
-                        src="/2.webp"
+                        src="/noviLogo1.webp"
                         alt="logoKokko"
                         className="w-[140px] h-[110px] object-contain"
                     />
@@ -21,7 +21,7 @@ function Footer(props) {
                 </div>
 
                 {/* Navigacija / linkovi */}
-                <div className="flex flex-col items-center text-center gap-2">
+                <div className="flex flex-col items-center text-center gap-2 font-dives">
                     <Link to='/' className="hover:text-pink-400 transition">Početna</Link>
                     <Link to="/katalog" className="hover:text-pink-400 transition">Katalog</Link>
                     <Link to="/oMeni" className="hover:text-pink-400 transition">O nama</Link>

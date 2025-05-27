@@ -9,12 +9,12 @@ import { Link } from 'react-router-dom';
 
 function Navbar(props) {
     return (
-        <div className='fixed lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90 overflow-x-hidden '>
+        <div className='fixed lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90 overflow-x-hidden pt-[10px]'>
             {/* Pozadinska slika samo na desktopu */}
             <img
                 src='/black2.webp'
                 alt='Background'
-                className='absolute inset-0 w-full h-full object-cover z-0 lg:flex hidden'
+                className='absolute inset-0 w-full h-full object-cover z-0 lg:flex hidden '
             />
 
 
@@ -24,7 +24,7 @@ function Navbar(props) {
 
                     <Link to='/' className='absolute left-1/2 transform -translate-x-1/2'>
                         <img
-                            src='/2.webp'
+                            src='/noviLogo1.webp'
                             alt='logoKokko'
                             className='h-[90px] object-contain'
                         />
@@ -59,7 +59,7 @@ function Navbar(props) {
                 <div className='flex items-center'>
                     <Link to='/'>
                         <img
-                            src='/2.webp'
+                            src='/noviLogo1.webp'
                             alt='logoKokko'
                             className='w-[200px] h-[140px] object-contain'
                         />
@@ -68,7 +68,7 @@ function Navbar(props) {
 
                 {/* Navigacija */}
                 <div className='flex-1 flex justify-center'>
-                    <ul className='flex gap-10 text-white text-lg font-light'>
+                    <ul className='flex gap-10 text-white text-xl font-dives'>
                         <li>
                             <Link
                                 to='/'
