@@ -15,22 +15,22 @@ function Pocetna() {
     });
 
     useEffect(() => {
-        window.scrollTo(0, 1);
-        window.scrollTo(0, 0);
+        // iOS scroll fix
+        document.documentElement.style.scrollBehavior = 'smooth';
     }, []);
 
     return (
-        <div className="bg-black overscroll-none touch-pan-y">
+        <div className="bg-black touch-pan-y overscroll-contain">
             {/* HERO SEKCIJA */}
             <section
-                className="relative min-h-screen w-full flex items-center justify-center text-center text-white px-4"
+                className="relative min-h-screen w-full flex items-center justify-center text-center text-white px-4 z-10"
                 style={{
                     backgroundImage: `url('/slikabr2.webp')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             >
-                <div className="z-10 max-w-3xl">
+                <div className="z-20 max-w-3xl">
                     <motion.h1
                         variants={fadeInUp}
                         initial="initial"
@@ -71,7 +71,7 @@ function Pocetna() {
             </section>
 
             {/* MINI GALERIJA */}
-            <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+            <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 z-10">
                 {['/IMG_1512.webp', '/IMG_1514.webp', '/slikabr3.webp', '/slikabr4.webp'].map((src, i) => (
                     <motion.div
                         key={i}
@@ -93,19 +93,17 @@ function Pocetna() {
 
             {/* POZIV NA AKCIJU */}
             <section className="relative text-center py-16 px-4 bg-black overflow-hidden">
-                {/* VIDEO POZADINA */}
                 <div className="absolute inset-0 bg-black opacity-60 z-10 pointer-events-none"></div>
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none select-none"
+                    className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none select-none"
                 >
                     <source src="/kVideo.mp4" type="video/mp4" />
                 </video>
 
-                {/* SADRŽAJ */}
                 <div className="relative z-20">
                     <motion.h2
                         variants={fadeInDelayed(0.2)}
@@ -134,7 +132,7 @@ function Pocetna() {
             </section>
 
             {/* RECENZIJE */}
-            <section className="bg-zinc-900 py-10">
+            <section className="bg-zinc-900 py-10 z-10">
                 <Recenzije />
             </section>
         </div>
