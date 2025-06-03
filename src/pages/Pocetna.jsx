@@ -1,36 +1,36 @@
-import React, { useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import Recenzije from './Recenzije.jsx'
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import Recenzije from './Recenzije.jsx';
 
 function Pocetna() {
     const fadeInUp = {
         initial: { opacity: 0, y: 50 },
         animate: { opacity: 1, y: 0, transition: { duration: 1 } }
-    }
+    };
 
     const fadeInDelayed = (delay = 0.3) => ({
         initial: { opacity: 0, y: 50 },
         animate: { opacity: 1, y: 0, transition: { duration: 1, delay } }
-    })
+    });
 
-    // iOS scroll fix
     useEffect(() => {
         window.scrollTo(0, 1);
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <div className="bg-black touch-pan-y overscroll-contain">
+        <div className="bg-black overscroll-none touch-pan-y">
             {/* HERO SEKCIJA */}
-            <section className="relative min-h-screen w-full">
-                <img
-                    src="/slikabr2.webp"
-                    alt="hero"
-                    draggable={false}
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none select-none"
-                />
-                <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white px-4">
+            <section
+                className="relative min-h-screen w-full flex items-center justify-center text-center text-white px-4"
+                style={{
+                    backgroundImage: `url('/slikabr2.webp')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}
+            >
+                <div className="z-10 max-w-3xl">
                     <motion.h1
                         variants={fadeInUp}
                         initial="initial"
@@ -47,14 +47,14 @@ function Pocetna() {
                         viewport={{ once: true }}
                         className="text-lg max-w-xl mb-6"
                     >
-                        <span className='font-mono'>KOMADI SA RUKOPISOM</span>
+                        <span className="font-mono">KOMADI SA RUKOPISOM</span>
                     </motion.p>
                     <motion.div
                         variants={fadeInDelayed(0.6)}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true }}
-                        className="flex gap-4"
+                        className="flex gap-4 justify-center"
                     >
                         <Link to="/katalog">
                             <button className="px-6 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
@@ -72,7 +72,7 @@ function Pocetna() {
 
             {/* MINI GALERIJA */}
             <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
-                {["/IMG_1512.webp", "/IMG_1514.webp", "/slikabr3.webp", "/slikabr4.webp"].map((src, i) => (
+                {['/IMG_1512.webp', '/IMG_1514.webp', '/slikabr3.webp', '/slikabr4.webp'].map((src, i) => (
                     <motion.div
                         key={i}
                         variants={fadeInDelayed(0.2 + i * 0.1)}
@@ -92,9 +92,9 @@ function Pocetna() {
             </section>
 
             {/* POZIV NA AKCIJU */}
-            <section className="relative text-center py-16 px-4 bg-black">
+            <section className="relative text-center py-16 px-4 bg-black overflow-hidden">
                 {/* VIDEO POZADINA */}
-                <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+                <div className="absolute inset-0 bg-black opacity-60 z-10 pointer-events-none"></div>
                 <video
                     autoPlay
                     loop
@@ -106,7 +106,7 @@ function Pocetna() {
                 </video>
 
                 {/* SADRŽAJ */}
-                <div className="relative z-10">
+                <div className="relative z-20">
                     <motion.h2
                         variants={fadeInDelayed(0.2)}
                         initial="initial"
@@ -114,7 +114,7 @@ function Pocetna() {
                         viewport={{ once: true }}
                         className="text-3xl text-white mb-4 font-bold"
                     >
-                        Nosi <span className='text-pink-300'>KOKKO</span>, nosi PRIČU
+                        Nosi <span className="text-pink-300">KOKKO</span>, nosi PRIČU
                     </motion.h2>
                     <motion.p
                         variants={fadeInDelayed(0.4)}
@@ -138,7 +138,7 @@ function Pocetna() {
                 <Recenzije />
             </section>
         </div>
-    )
+    );
 }
 
-export default Pocetna
+export default Pocetna;
