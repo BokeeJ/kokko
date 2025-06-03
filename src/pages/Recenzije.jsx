@@ -27,11 +27,17 @@ function Recenzije() {
         : [];
 
     return (
-        <div
-            className="p-5 max-w-2xl mx-auto text-white bg-cover bg-center rounded-xl w-full"
-            style={{ backgroundImage: "url('/black2.webp')" }}
-        >
-            <div className="bg-black/70 p-6 rounded-xl">
+        <div className="relative p-5 max-w-2xl mx-auto text-white w-full rounded-xl overflow-hidden touch-pan-y">
+            {/* Pozadinska slika */}
+            <img
+                src="/black2.webp"
+                alt="pozadina"
+                draggable={false}
+                className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none select-none"
+            />
+
+            {/* Sadržaj preko pozadine */}
+            <div className="relative z-10 bg-black/70 p-6 rounded-xl">
                 <h2 className="text-3xl mb-4 text-center">Utisci</h2>
 
                 <div className="space-y-4 mb-8">

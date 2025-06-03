@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Recenzije from './Recenzije.jsx'
@@ -14,13 +14,20 @@ function Pocetna() {
         animate: { opacity: 1, y: 0, transition: { duration: 1, delay } }
     })
 
+    // iOS scroll fix
+    useEffect(() => {
+        window.scrollTo(0, 1);
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
-        <div className="bg-black touch-pan-y">
+        <div className="bg-black touch-pan-y overscroll-contain">
             {/* HERO SEKCIJA */}
             <section className="relative min-h-screen w-full">
                 <img
                     src="/slikabr2.webp"
                     alt="hero"
+                    draggable={false}
                     className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none select-none"
                 />
                 <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white px-4">
@@ -77,7 +84,8 @@ function Pocetna() {
                         <img
                             src={src}
                             alt={`preview-${i}`}
-                            className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                            draggable={false}
                         />
                     </motion.div>
                 ))}
@@ -92,7 +100,7 @@ function Pocetna() {
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none lg:hidden"
+                    className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none select-none"
                 >
                     <source src="/kVideo.mp4" type="video/mp4" />
                 </video>

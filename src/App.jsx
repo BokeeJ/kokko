@@ -45,6 +45,7 @@ function App() {
 
   // Lock body scroll on mobile menu open
   useEffect(() => {
+    console.log("IS OPEN:", isOpen)
     const body = document.body;
     if (isOpen) {
       body.classList.add("noscroll");
