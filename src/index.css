@@ -1,14 +1,17 @@
+html,
+body {
+	height: auto !important;
+	min-height: 100%;
+	overscroll-behavior: none;
+	-webkit-overflow-scrolling: auto;
+	scroll-behavior: auto !important;
+	overflow-y: scroll !important;
+	position: static !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Osnovni reset */
-html,
-body {
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch; /* Ovo dodaj */
-	touch-action: pan-y;
-}
 
 /* Kad se otvori mobilni meni */
 body.noscroll {
