@@ -36,7 +36,7 @@ body {
 }
 .marquee-track {
 	display: flex;
-	min-width: 100%;
+	width: max-content;
 	animation: scroll-left 20s linear infinite;
 }
 

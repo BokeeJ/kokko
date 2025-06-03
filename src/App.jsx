@@ -1,13 +1,14 @@
+import React, { useEffect, useRef, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { CiMenuFries } from "react-icons/ci";
+
 import Navbar from "./Components/Navbar";
 import MiniBar from "./Components/MiniBar";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import ScrollControl from "./services/ScrollControl";
 import DefaultTopScroll from "./services/DefaultTopScroll";
-import { useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
 import ScrollToTop from "./services/ScrollToTop";
-import { CiMenuFries } from "react-icons/ci";
 import FooterEnd from "./Components/FooterEnd";
 
 function App() {
@@ -25,7 +26,6 @@ function App() {
         setIsOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -37,8 +37,17 @@ function App() {
     setBrojac(korpa.length);
   }, []);
 
+  // Lock body scroll on mobile menu open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
+
   return (
-    <div className="relative min-h-screen bg-black h-full">
+    <div className="relative min-h-screen bg-black overflow-x-hidden">
 
       {/* Dugme za mobilni meni */}
       <button
@@ -51,7 +60,7 @@ function App() {
       {/* Mobilni sidebar meni */}
       <div
         ref={menuRef}
-        className={`lg:hidden fixed top-[100px] left-0 h-full w-[230px] z-[100] shadow-lg transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-black/30 
+        className={`lg:hidden fixed top-[100px] left-0 h-[calc(100vh-100px)] w-[230px] z-[100] shadow-lg transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-black/30 overflow-y-auto
         ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <MiniBar />
@@ -65,25 +74,27 @@ function App() {
 
       <ScrollControl />
 
+      {/* Header traka (opciono) */}
+      <Header />
+
       {/* Navbar */}
-      {/* <Header /> */}
       <Navbar brojac={brojac} />
 
-      {/* Fini prelaz - fade */}
+      {/* Fade prelaz */}
       <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
       <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
 
-      {/* Sadržaj stranica */}
+      {/* Glavni sadržaj */}
       <div>
         <DefaultTopScroll />
         <Outlet context={{ brojac, setBrojac }} />
       </div>
 
-      {/* Fini prelaz - fade */}
+      {/* Fade ispod sadržaja */}
       <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
       <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
 
-      {/* Footer */}
+      {/* Footer sekcije */}
       <Footer brojac={brojac} />
       <ScrollToTop />
       <FooterEnd />
