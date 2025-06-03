@@ -66,7 +66,7 @@ function App() {
       <ScrollControl />
 
       {/* Navbar */}
-      <Header />
+      {/* <Header /> */}
       <Navbar brojac={brojac} />
 
       {/* Fini prelaz - fade */}
