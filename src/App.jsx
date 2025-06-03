@@ -19,12 +19,12 @@ function App() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   useEffect(() => {
-    // iOS / Safari bug fix za skrol pri prvom učitavanju
+    // iOS / Safari bug fix za prvi scroll
     window.scrollTo(0, 1);
     window.scrollTo(0, 0);
   }, []);
-
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -43,9 +43,7 @@ function App() {
     setBrojac(korpa.length);
   }, []);
 
-  // Lock body scroll on mobile menu open
   useEffect(() => {
-    console.log("IS OPEN:", isOpen)
     const body = document.body;
     if (isOpen) {
       body.classList.add("noscroll");
@@ -56,7 +54,6 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-
       {/* Dugme za mobilni meni */}
       <button
         onClick={toggleMenu}
@@ -81,19 +78,11 @@ function App() {
       </div>
 
       <ScrollControl />
-
-      {/* Header traka (opciono) */}
       <Header />
-
-      {/* Navbar */}
       <Navbar brojac={brojac} />
 
-      {/* Fade prelaz */}
-      <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
-      <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
-
-      {/* Glavni sadržaj */}
-      <div>
+      {/* Odmak za fiksirani Navbar na mobilnom */}
+      <div className="pt-[100px] lg:pt-0">
         <DefaultTopScroll />
         <Outlet context={{ brojac, setBrojac }} />
       </div>
@@ -102,7 +91,6 @@ function App() {
       <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
       <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
 
-      {/* Footer sekcije */}
       <Footer brojac={brojac} />
       <ScrollToTop />
       <FooterEnd />

@@ -1,17 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Osnovni reset */
 html,
 body {
 	overflow-x: hidden;
-	touch-action: pan-y;
+	touch-action: auto; /* ili pan-y ako hoćeš samo vertikalni scroll */
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior-y: contain;
+	scroll-behavior: smooth;
 }
+
+/* Kad se otvori mobilni meni */
 body.noscroll {
 	overflow: hidden;
 	height: 100vh;
 	position: relative;
 }
 
+/* Animacija za ulaz elemenata */
 @keyframes fadeInUp {
 	0% {
 		opacity: 0;
@@ -27,7 +35,7 @@ body.noscroll {
 	animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Delay klases */
+/* Delay klase za animaciju */
 .animation-delay-0 {
 	animation-delay: 0s;
 }
@@ -40,6 +48,8 @@ body.noscroll {
 .animation-delay-600 {
 	animation-delay: 0.6s;
 }
+
+/* Marquee traka */
 .marquee-track {
 	display: flex;
 	width: max-content;
@@ -53,12 +63,11 @@ body.noscroll {
 	padding-right: 2rem;
 }
 
-/* Animacija */
+/* Animacija skrolovanja teksta levo */
 @keyframes scroll-left {
 	0% {
 		transform: translateX(0%);
 	}
-
 	100% {
 		transform: translateX(-50%);
 	}
