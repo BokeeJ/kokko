@@ -1,22 +1,101 @@
+import React, { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { CiMenuFries } from "react-icons/ci";
+
 import Navbar from "./Components/Navbar";
-import Header from "./Components/Header";
+import MiniBar from "./Components/MiniBar";
 import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import ScrollControl from "./services/ScrollControl";
+import DefaultTopScroll from "./services/DefaultTopScroll";
+import ScrollToTop from "./services/ScrollToTop";
 import FooterEnd from "./Components/FooterEnd";
 
-
-
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [brojac, setBrojac] = useState(0);
+  const menuRef = useRef();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const korpa = JSON.parse(localStorage.getItem("korpa")) || [];
+    setBrojac(korpa.length);
+  }, []);
+
+  // Zabrana scroll-a kad je meni otvoren
+  useEffect(() => {
+    const body = document.body;
+    if (isOpen) {
+      body.classList.add("noscroll");
+    } else {
+      body.classList.remove("noscroll");
+    }
+  }, [isOpen]);
+
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      <Header />
-      <Navbar />
-      <div className="pt-[100px] lg:pt-0">
-        <Outlet />
+      {/* Dugme za mobilni meni */}
+      <button
+        onClick={toggleMenu}
+        className={`lg:hidden p-2 w-[40px] text-pink-200 text-3xl rounded z-[100] fixed top-[20px] left-[15px] transition-opacity duration-200 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+      >
+        <CiMenuFries />
+      </button>
+
+      {/* Mobilni sidebar meni */}
+      <div
+        ref={menuRef}
+        className={`lg:hidden fixed top-[100px] left-0 h-[calc(100vh-100px)] w-[230px] z-[100] shadow-lg transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-black/30 overflow-y-auto
+        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+      >
+        <MiniBar />
+        <button
+          onClick={toggleMenu}
+          className="mt-4 text-sm text-white border-white rounded-2xl border p-3 ml-4 hover:border-pink-200"
+        >
+          Zatvori
+        </button>
       </div>
-      <Footer />
-      {/* <FooterEnd /> */}
+
+      <ScrollControl />
+      <Header />
+      <Navbar brojac={brojac} />
+
+      {/* Fade prelaz */}
+      <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
+      <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
+
+      {/* Glavni sadržaj */}
+      <div>
+        <DefaultTopScroll />
+        <Outlet context={{ brojac, setBrojac }} />
+      </div>
+
+      {/* Fade ispod sadržaja */}
+      <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
+      <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
+
+      <Footer brojac={brojac} />
+      <ScrollToTop />
+      <FooterEnd />
     </div>
   );
 }
+
 export default App;

@@ -1,21 +1,24 @@
-html,
-body {
-	height: auto !important;
-	min-height: 100%;
-	overscroll-behavior: none;
-	-webkit-overflow-scrolling: auto;
-	scroll-behavior: auto !important;
-	overflow-y: scroll !important;
-	position: static !important;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Osnovni reset za html i body */
+html,
+body {
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	height: auto;
+	min-height: 100%;
+	touch-action: pan-y;
+	overscroll-behavior: none;
+	position: static;
+	-webkit-overflow-scrolling: touch;
+	background-color: black;
+}
+
 /* Kad se otvori mobilni meni */
 body.noscroll {
-	overflow: hidden;
+	overflow: hidden !important;
 	height: 100vh;
 	position: relative;
 }
