@@ -5,6 +5,11 @@ html,
 body {
 	overflow-x: hidden;
 }
+body.noscroll {
+	overflow: hidden;
+	height: 100vh;
+	position: relative;
+}
 
 @keyframes fadeInUp {
 	0% {

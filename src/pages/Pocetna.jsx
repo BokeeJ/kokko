@@ -15,10 +15,14 @@ function Pocetna() {
     })
 
     return (
-        <div className="bg-black">
+        <div className="bg-black touch-pan-y">
             {/* HERO SEKCIJA */}
-            <section className="relative h-[90vh] w-full">
-                <img src="/slikabr2.webp" alt="hero" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+            <section className="relative min-h-screen w-full">
+                <img
+                    src="/slikabr2.webp"
+                    alt="hero"
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+                />
                 <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white px-4">
                     <motion.h1
                         variants={fadeInUp}
@@ -80,7 +84,7 @@ function Pocetna() {
             </section>
 
             {/* POZIV NA AKCIJU */}
-            <section className="relative text-center py-16 px-4 bg-black overflow-hidden">
+            <section className="relative text-center py-16 px-4 bg-black">
                 {/* VIDEO POZADINA */}
                 <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
                 <video
@@ -88,10 +92,9 @@ function Pocetna() {
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover object-center z-0 lg:hidden"
+                    className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none lg:hidden"
                 >
                     <source src="/kVideo.mp4" type="video/mp4" />
-
                 </video>
 
                 {/* SADRŽAJ */}
@@ -121,6 +124,8 @@ function Pocetna() {
                     </Link>
                 </div>
             </section>
+
+            {/* RECENZIJE */}
             <section className="bg-zinc-900 py-10">
                 <Recenzije />
             </section>

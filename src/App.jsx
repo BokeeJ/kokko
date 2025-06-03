@@ -19,6 +19,12 @@ function App() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  useEffect(() => {
+    // iOS / Safari bug fix za skrol pri prvom učitavanju
+    window.scrollTo(0, 1);
+    window.scrollTo(0, 0);
+  }, []);
+
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -39,10 +45,11 @@ function App() {
 
   // Lock body scroll on mobile menu open
   useEffect(() => {
+    const body = document.body;
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      body.classList.add("noscroll");
     } else {
-      document.body.style.overflow = "auto";
+      body.classList.remove("noscroll");
     }
   }, [isOpen]);
 
