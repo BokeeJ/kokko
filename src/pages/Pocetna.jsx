@@ -1,40 +1,139 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Recenzije from './Recenzije.jsx';
 
 function Pocetna() {
+    const fadeInUp = {
+        initial: { opacity: 0, y: 50 },
+        animate: { opacity: 1, y: 0, transition: { duration: 1 } }
+    };
+
+    const fadeInDelayed = (delay = 0.3) => ({
+        initial: { opacity: 0, y: 50 },
+        animate: { opacity: 1, y: 0, transition: { duration: 1, delay } }
+    });
+
+    useEffect(() => {
+        // iOS scroll fix
+        document.documentElement.style.scrollBehavior = 'smooth';
+    }, []);
+
     return (
-        <div className="bg-black text-white min-h-screen">
+        <div className="bg-black touch-pan-y overscroll-contain">
             {/* HERO SEKCIJA */}
             <section
-                className="min-h-screen w-full flex items-center justify-center text-center px-4"
+                className="relative min-h-screen w-full flex items-center justify-center text-center text-white px-4 z-10"
                 style={{
                     backgroundImage: `url('/slikabr2.webp')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
             >
-                <div>
-                    <h1 className="text-4xl font-bold mb-6">Handmade. Every stitch.</h1>
-                    <p className="mb-6 font-mono">KOMADI SA RUKOPISOM</p>
-                    <div className="flex gap-4 justify-center">
+                <div className="z-20 max-w-3xl">
+                    <motion.h1
+                        variants={fadeInUp}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="text-4xl md:text-6xl font-bold mb-6"
+                    >
+                        Handmade. Every stitch.
+                    </motion.h1>
+                    <motion.p
+                        variants={fadeInDelayed(0.4)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="text-lg max-w-xl mb-6"
+                    >
+                        <span className="font-mono">KOMADI SA RUKOPISOM</span>
+                    </motion.p>
+                    <motion.div
+                        variants={fadeInDelayed(0.6)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="flex gap-4 justify-center"
+                    >
                         <Link to="/katalog">
-                            <button className="px-6 py-2 bg-pink-500 text-white rounded">Katalog</button>
+                            <button className="px-6 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
+                                Pogledaj katalog
+                            </button>
                         </Link>
                         <Link to="/Omeni">
-                            <button className="px-6 py-2 border border-white text-white rounded">O meni</button>
+                            <button className="px-6 py-2 border border-white text-white rounded hover:bg-white hover:text-black transition">
+                                Iza kamere
+                            </button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* TEST SEKCIJA */}
-            <section className="p-10 bg-zinc-900">
-                <p className="mb-4">Test sekcija 1</p>
-                <div className="h-[300px] bg-pink-200 mb-4 rounded"></div>
-                <p className="mb-4">Test sekcija 2</p>
-                <div className="h-[300px] bg-pink-400 mb-4 rounded"></div>
-                <p className="mb-4">Test sekcija 3</p>
-                <div className="h-[300px] bg-pink-600 mb-4 rounded"></div>
+            {/* MINI GALERIJA */}
+            <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 z-10">
+                {['/IMG_1512.webp', '/IMG_1514.webp', '/slikabr3.webp', '/slikabr4.webp'].map((src, i) => (
+                    <motion.div
+                        key={i}
+                        variants={fadeInDelayed(0.2 + i * 0.1)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="overflow-hidden rounded-xl group cursor-pointer"
+                    >
+                        <img
+                            src={src}
+                            alt={`preview-${i}`}
+                            className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                            draggable={false}
+                        />
+                    </motion.div>
+                ))}
+            </section>
+
+            {/* POZIV NA AKCIJU */}
+            <section className="relative text-center py-16 px-4 bg-black overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-60 z-10 pointer-events-none"></div>
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none select-none"
+                >
+                    <source src="/kVideo.mp4" type="video/mp4" />
+                </video>
+
+                <div className="relative z-20">
+                    <motion.h2
+                        variants={fadeInDelayed(0.2)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="text-3xl text-white mb-4 font-bold"
+                    >
+                        Nosi <span className="text-pink-300">KOKKO</span>, nosi PRIČU
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeInDelayed(0.4)}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true }}
+                        className="text-pink-300 text-lg mb-6 font-dives"
+                    >
+                        Tvoja priča počinje ovde.
+                    </motion.p>
+                    <Link to="/katalog">
+                        <button className="px-6 py-2 bg-pink-500 text-white rounded-xl hover:bg-pink-600 transition">
+                            Pogledaj ponudu
+                        </button>
+                    </Link>
+                </div>
+            </section>
+
+            {/* RECENZIJE */}
+            <section className="bg-zinc-900 py-10 z-10">
+                <Recenzije />
             </section>
         </div>
     );
