@@ -21,7 +21,7 @@ function Pocetna() {
                 <img
                     src="/slikabr2.webp"
                     alt="hero"
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none select-none"
                 />
                 <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white px-4">
                     <motion.h1
