@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar(props) {
     return (
-        <div className='fixed lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90 overflow-x-hidden pt-[10px]'>
+        <div className='relative lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90 overflow-x-hidden pt-[10px]'>
             {/* Pozadinska slika samo na desktopu */}
             <img
                 src='/black2.webp'
