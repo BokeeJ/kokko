@@ -37,7 +37,6 @@ function App() {
     setBrojac(korpa.length);
   }, []);
 
-  // Zabrana scroll-a kad je meni otvoren
   useEffect(() => {
     const body = document.body;
     if (isOpen) {
@@ -52,7 +51,7 @@ function App() {
       {/* Dugme za mobilni meni */}
       <button
         onClick={toggleMenu}
-        className={`lg:hidden p-2 w-[40px] text-pink-200 text-3xl rounded z-[100] fixed top-[20px] left-[15px] transition-opacity duration-200 ${isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`lg:hidden p-2 w-[40px] text-pink-200 text-3xl rounded z-[110] fixed top-[47px] left-[15px] transition-opacity duration-400 ${isOpen ? "opacity-10 pointer-events-none" : "opacity-100"
           }`}
       >
         <CiMenuFries />
@@ -61,8 +60,8 @@ function App() {
       {/* Mobilni sidebar meni */}
       <div
         ref={menuRef}
-        className={`lg:hidden fixed top-[100px] left-0 h-[calc(100vh-100px)] w-[230px] z-[100] shadow-lg transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-black/30 overflow-y-auto
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`lg:hidden fixed top-[100px] left-0 h-[calc(100vh-100px)] w-[230px] z-[110] shadow-lg transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-black/30 overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <MiniBar />
         <button
@@ -74,23 +73,31 @@ function App() {
       </div>
 
       <ScrollControl />
-      <Header />
-      <Navbar brojac={brojac} />
 
-      {/* Fade prelaz */}
-      <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
-      <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
-
-      {/* Glavni sadržaj */}
-      <div>
-        <DefaultTopScroll />
-        <Outlet context={{ brojac, setBrojac }} />
+      {/* Fiksiran Header */}
+      <div className="fixed top-0 left-0 w-full z-[100]">
+        <Header />
       </div>
 
-      {/* Fade ispod sadržaja */}
+      {/* Fiksiran Navbar odmah ispod Headera */}
+      <div className="fixed top-[20px] left-0 w-full z-[90]">
+        <Navbar brojac={brojac} />
+      </div>
+      {/* Blagi fade prelaz ispod Navbar-a */}
+      <div className="h-[40px] w-full bg-gradient-to-b from-black/80 to-transparent z-[85] relative shadow-lg" />
+
+
+      {/* Offset da se sadržaj ne poklapa sa Header + Navbar */}
+      <div className="pt-[120px]">
+        <DefaultTopScroll />
+        <Outlet context={{ brojac, setBrojac, isOpen }} />
+      </div>
+
+      {/* Fade efekti */}
       <div className="h-[10px] bg-gradient-to-b from-transparent to-gray-600"></div>
       <div className="h-[90px] bg-gradient-to-t from-transparent to-gray-600"></div>
 
+      {/* Footer sekcije */}
       <Footer brojac={brojac} />
       <ScrollToTop />
       <FooterEnd />

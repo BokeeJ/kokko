@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar(props) {
     return (
-        <div className='relative lg:static top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90 overflow-x-hidden pt-[10px]'>
+        <div className='sticky top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md opacity-90'>
             {/* Pozadinska slika samo na desktopu */}
             <img
                 src='/black2.webp'
@@ -54,7 +54,7 @@ function Navbar(props) {
 
 
             {/* Desktop verzija */}
-            <div className='hidden lg:flex w-full h-[200px] justify-between items-center px-8 relative z-10'>
+            <div className='hidden lg:flex w-full h-[150px] justify-between items-center px-8 relative z-10'>
                 {/* Logo */}
                 <div className='flex items-center'>
                     <Link to='/'>

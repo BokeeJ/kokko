@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Osnovni reset za html i body */
+/* RESET za html i body */
 html,
 body {
 	overflow-x: hidden;
@@ -16,14 +16,9 @@ body {
 	background-color: black;
 }
 
-/* Kad se otvori mobilni meni */
-body.noscroll {
-	overflow: hidden !important;
-	height: 100vh;
-	position: relative;
-}
+/* Kada je mobilni meni otvoren */
 
-/* Animacija za ulaz elemenata */
+/* ANIMACIJA za fade-in */
 @keyframes fadeInUp {
 	0% {
 		opacity: 0;
@@ -39,7 +34,7 @@ body.noscroll {
 	animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Delay klase za animaciju */
+/* Delay klase */
 .animation-delay-0 {
 	animation-delay: 0s;
 }
@@ -53,22 +48,32 @@ body.noscroll {
 	animation-delay: 0.6s;
 }
 
-/* Marquee traka */
-.marquee-track {
+/* MARQUEE sekcija */
+.marquee-container {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+.marquee-content {
 	display: flex;
-	width: max-content;
-	animation: scroll-left 20s linear infinite;
+	width: fit-content;
+	animation: marquee-linear 20s linear infinite;
 }
 
 .marquee-text {
+	display: flex;
+	align-items: center;
 	white-space: nowrap;
-	font-size: 0.875rem; /* Tailwind ekvivalent: text-sm */
+	gap: 2rem;
+	font-size: 0.875rem; /* Tailwind ekvivalent text-sm */
 	color: white;
 	padding-right: 2rem;
 }
 
-/* Animacija skrolovanja teksta levo */
-@keyframes scroll-left {
+/* Animacija neprekidnog klizanja */
+@keyframes marquee-linear {
 	0% {
 		transform: translateX(0%);
 	}

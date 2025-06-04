@@ -50,12 +50,12 @@ function Pocetna() {
                         className="flex gap-4"
                     >
                         <Link to="/katalog">
-                            <button className="px-6 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
+                            <button className="px-4 py-2  text-white rounded border border-white hover:bg-white hover:text-black hover:opacity-70 rounded-l  transition font-dives">
                                 Pogledaj katalog
                             </button>
                         </Link>
                         <Link to="/Omeni">
-                            <button className="px-6 py-2 border border-white text-white rounded hover:bg-white hover:text-black transition">
+                            <button className="px-4 py-2 text-white rounded  border border-white hover:bg-white hover:text-black hover:opacity-70 rounded-l transition font-dives">
                                 Iza kamere
                             </button>
                         </Link>
@@ -118,7 +118,7 @@ function Pocetna() {
                         Tvoja priča počinje ovde.
                     </motion.p>
                     <Link to="/katalog">
-                        <button className="px-6 py-2 bg-pink-500 text-white rounded-xl hover:bg-pink-600 transition">
+                        <button className="px-6 py-2 border border-white text-white rounded-xl hover:bg-opacity-40 hover:bg-pink-300 transition">
                             Pogledaj ponudu
                         </button>
                     </Link>

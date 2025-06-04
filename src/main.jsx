@@ -15,6 +15,10 @@ import ArtikalDetalj from './Components/ArtikalDetalj.jsx'
 import Hvala from './pages/Hvala.jsx'
 import Recenzije from './pages/Recenzije.jsx'
 import DodajRecenziju from './pages/DodajRecenziju.jsx'
+import Dostava from './pages/Dostava.jsx'
+import Kontakt from './pages/Kontakt.jsx'
+import Odustanak from './pages/Odustanak.jsx'
+import Saradnja from './pages/Saradnja.jsx'
 
 const router = createBrowserRouter([
   {
@@ -65,6 +69,22 @@ const router = createBrowserRouter([
       {
         path: 'dodajRecenziju',
         element: <DodajRecenziju />
+      },
+      {
+        path: 'dostava',
+        element: <Dostava />
+      },
+      {
+        path: 'kontakt',
+        element: <Kontakt />
+      },
+      {
+        path: 'odustanak',
+        element: <Odustanak />
+      },
+      {
+        path: 'saradnja',
+        element: <Saradnja />
       }
     ]
   }

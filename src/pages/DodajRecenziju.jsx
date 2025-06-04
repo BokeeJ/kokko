@@ -47,7 +47,7 @@ function DodajRecenziju() {
 
     return (
         <div className="p-5 max-w-xl mx-auto text-white">
-            <h2 className="text-3xl mb-4 text-center">Dodaj recenziju</h2>
+            <h2 className="text-3xl mb-4 text-center">Podeli utisak</h2>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3 bg-zinc-900 p-4 rounded">
                 <input

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Recenzije() {
     const [recenzije, setRecenzije] = useState([])
@@ -38,7 +39,7 @@ function Recenzije() {
 
             {/* Sadržaj preko pozadine */}
             <div className="relative z-10 bg-black/70 p-6 rounded-xl">
-                <h2 className="text-3xl mb-4 text-center">Utisci</h2>
+                <h2 className="text-3xl mb-4 text-center font-dives">Utisci</h2>
 
                 <div className="space-y-4 mb-8">
                     {recenzijeZaPrikaz.map((r, i) => (
@@ -51,13 +52,15 @@ function Recenzije() {
                 </div>
 
                 {recenzije.length > 2 && (
-                    <div className="text-center">
+                    <div className="text-center flex flex-col font-bebas">
                         <button
                             onClick={() => setPrikaziSve(!prikaziSve)}
                             className="text-pink-400 hover:text-pink-200 underline"
                         >
                             {prikaziSve ? 'Zatvori utiske' : 'Prikaži sve utiske'}
                         </button>
+                        <Link to="/dodajRecenziju" className="text-pink-400 hover:text-pink-200 underline">Podeli utisak</Link>
+
                     </div>
                 )}
             </div>
