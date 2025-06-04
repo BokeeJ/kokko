@@ -17,7 +17,7 @@ function Saradnja() {
                 </ul>
 
                 <p className="mt-6">
-                    Ako imate ideju za saradnju, pišite nam na <span className="text-pink-400">info@kokkodesign.rs</span> ili putem Instagrama:{" "}
+                    Ako imate ideju za saradnju, pišite nam na <a className="text-pink-400" href="mailto:kkaranovic14@gmail.com">E-mail</a> ili putem Instagrama:{" "}
                     <a
                         href="https://www.instagram.com/kokko.design"
                         target="_blank"

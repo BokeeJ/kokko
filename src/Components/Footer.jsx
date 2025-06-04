@@ -56,7 +56,7 @@ function Footer({ brojac }) {
                         alt="logoKokko"
                         className="w-[140px] h-[110px] object-contain"
                     />
-                    <p className="text-sm text-gray-400">2023 Kokko Design</p>
+                    <p className="text-sm text-gray-400 font-dives">2023 Kokko Design</p>
                 </div>
             </div>
         </footer>
