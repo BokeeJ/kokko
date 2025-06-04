@@ -8,6 +8,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import '../styles.css';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import BojaKruzici from '../services/BojaKruzici.jsx';
 
 function ArtikalDetalj() {
     const { id } = useParams();
@@ -53,10 +54,10 @@ function ArtikalDetalj() {
             </Swiper>
 
             <div className="mt-6 space-y-2">
-                <p><span className="text-xl font-bold">Cena:</span> {proizvod.cena},00 RSD</p>
-                <p><span className="text-xl font-bold">Opis:</span> {proizvod.opis}</p>
-                <p><span className="text-xl font-bold">Boje:</span> {proizvod.boja.join(', ')}</p>
-                <p><span className="text-xl font-bold">Veličine:</span> {proizvod.velicina.join(', ')}</p>
+                <p><span className="text-xl font-bold text-pink-300">Cena:</span> {proizvod.cena},00 RSD</p>
+                <p><span className="text-xl font-bold text-pink-300">Opis:</span> {proizvod.opis}</p>
+                <p><span className="text-xl font-bold text-pink-300">Boje:</span> {proizvod.boja.join(', ')}</p>
+                <p><span className="text-xl font-bold text-pink-300">Veličine:</span> {proizvod.velicina.join(', ')}</p>
             </div>
 
             {fullscreenSlika && (

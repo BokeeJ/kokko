@@ -3,6 +3,7 @@ import katalog from '../services/Katalog';
 import { Link, useOutletContext } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Qr from '../services/QrKodKomponenta';
+import BojeKruzici from '../services/BojaKruzici';
 
 function Katalog() {
     const { setBrojac } = useOutletContext();
@@ -83,18 +84,13 @@ function Katalog() {
                                 <div className="flex flex-col gap-2 text-sm">
                                     <div className="text-white flex items-center gap-2">
                                         Boja:
-                                        <select
-                                            className="flex-1 p-1 rounded bg-white text-black"
-                                            value={selekcija.boja || item.boja[0]}
-                                            onChange={(e) => handleChange(item.id, 'boja', e.target.value)}
-                                        >
-                                            {item.boja.map((b, i) => (
-                                                <option key={i} value={b}>
-                                                    {b}
-                                                </option>
-                                            ))}
-                                        </select>
+                                        <BojeKruzici
+                                            boje={item.boja}
+                                            izabrana={selekcija.boja || item.boja[0]}
+                                            onChange={(vrednost) => handleChange(item.id, 'boja', vrednost)}
+                                        />
                                     </div>
+
                                     <div className="text-white flex items-center gap-2">
                                         Veličina:
                                         <select
@@ -124,7 +120,6 @@ function Katalog() {
                     );
                 })}
 
-                {/* QR kod */}
                 <div className="hidden">
                     <Qr />
                 </div>

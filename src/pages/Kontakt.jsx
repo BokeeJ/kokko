@@ -21,17 +21,17 @@ function Kontakt() {
                             rel="noopener noreferrer"
                             className="hover:text-pink-400 transition"
                         >
-                            @kokko.design
+                            Instagram
                         </a>
                     </div>
 
                     <div className="flex items-center gap-3">
                         <CiMail className="text-3xl text-pink-300" />
                         <a
-                            href="mailto:info@kokkodesign.rs"
+                            href="mailto:kkaranovic14@gmail.com"
                             className="hover:text-pink-400 transition"
                         >
-                            info@kokkodesign.rs
+                            E-Mail
                         </a>
                     </div>
                 </div>
