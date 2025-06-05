@@ -1,18 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import katalog from '../services/Katalog.js';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import '../styles.css';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
-import BojaKruzici from '../services/BojaKruzici.jsx';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IoMdClose } from 'react-icons/io';
+import { useSwipeable } from 'react-swipeable';
 
 function ArtikalDetalj() {
     const { id } = useParams();
-    const [fullscreenSlika, setFullscreenSlika] = useState(null);
+    const [fullscreenIndex, setFullscreenIndex] = useState(null);
     const proizvod = katalog.find((item) => item.id === parseInt(id));
 
     if (!proizvod) {
@@ -21,54 +16,94 @@ function ArtikalDetalj() {
 
     const slike = Array.isArray(proizvod.slika) ? proizvod.slika : [proizvod.slika];
 
+    const openFullscreen = (index) => {
+        setFullscreenIndex(index);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeFullscreen = () => {
+        setFullscreenIndex(null);
+        document.body.style.overflow = 'auto';
+    };
+
+    const nextSlide = () => {
+        setFullscreenIndex((prev) => (prev + 1) % slike.length);
+    };
+
+    const prevSlide = () => {
+        setFullscreenIndex((prev) => (prev - 1 + slike.length) % slike.length);
+    };
+
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => nextSlide(),
+        onSwipedRight: () => prevSlide(),
+        onSwipedUp: () => closeFullscreen(),
+        preventScrollOnSwipe: true,
+        trackTouch: true,
+        trackMouse: false,
+    });
+
     return (
-        <div className="text-white p-10 relative z-0">
-            <h2 className="text-pink-300 text-3xl mb-4">{proizvod.naziv}</h2>
+        <div className="text-white px-5 pt-5 pb-16 relative">
+            <h2 className="text-pink-300 text-3xl mb-4 text-center">{proizvod.naziv}</h2>
 
-            <Swiper
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={'auto'}
-                coverflowEffect={{
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows: true,
-                }}
-                pagination={true}
-                modules={[EffectCoverflow, Pagination]}
-                className="mySwiper z-0"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-center z-[90]">
                 {slike.map((src, i) => (
-                    <SwiperSlide key={i} className="flex justify-center items-center !w-auto !h-auto">
-                        <img
-                            src={src}
-                            alt={`slika-${i}`}
-                            onClick={() => setFullscreenSlika(src)}
-                            className="max-w-[250px] max-h-[350px] object-cover rounded-xl cursor-pointer pointer-events-auto"
-                        />
-                    </SwiperSlide>
+                    <img
+                        key={i}
+                        src={src}
+                        alt={`slika-${i}`}
+                        onClick={() => openFullscreen(i)}
+                        className="w-full max-h-[250px] object-cover rounded-xl cursor-pointer border border-white/20 hover:border-pink-300"
+                    />
                 ))}
-            </Swiper>
+            </div>
 
-            <div className="mt-6 space-y-2">
+            <div className="mt-8 space-y-3 max-w-xl mx-auto">
                 <p><span className="text-xl font-bold text-pink-300">Cena:</span> {proizvod.cena},00 RSD</p>
                 <p><span className="text-xl font-bold text-pink-300">Opis:</span> {proizvod.opis}</p>
                 <p><span className="text-xl font-bold text-pink-300">Boje:</span> {proizvod.boja.join(', ')}</p>
                 <p><span className="text-xl font-bold text-pink-300">Veličine:</span> {proizvod.velicina.join(', ')}</p>
             </div>
 
-            {fullscreenSlika && (
-                <div
-                    className="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999]"
-                    onClick={() => setFullscreenSlika(null)}
-                >
-                    <img src={fullscreenSlika} className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg" />
+            <AnimatePresence>
+                {fullscreenIndex !== null && (
+                    <motion.div
+                        {...swipeHandlers}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black/95 z-[99999] flex items-center justify-center"
+                    >
+                        <button
+                            onClick={closeFullscreen}
+                            className="absolute top-4 right-4 text-white text-3xl z-50 hover:text-pink-400"
+                        >
+                            <IoMdClose />
+                        </button>
 
-                </div>
-            )}
+                        <button
+                            onClick={prevSlide}
+                            className="absolute left-5 text-white text-4xl z-50 hover:text-pink-400"
+                        >
+                            ❮
+                        </button>
+
+                        <img
+                            src={slike[fullscreenIndex]}
+                            className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg z-[99999]"
+                            alt="fullscreen"
+                        />
+
+                        <button
+                            onClick={nextSlide}
+                            className="absolute right-5 text-white text-4xl z-50 hover:text-pink-400"
+                        >
+                            ❯
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

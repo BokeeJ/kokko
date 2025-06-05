@@ -51,7 +51,9 @@ function Katalog() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -30 }}
                             transition={{ duration: 0.4 }}
-                            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl z-[1000] text-xl"
+                            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+               bg-pink-300 text-white px-6 py-3 rounded-xl shadow-xl z-[1000] 
+               text-xl justify-center items-center flex max-w-[90%] text-center"
                         >
                             ✅ Dodato u korpu!
                         </motion.div>
@@ -64,7 +66,7 @@ function Katalog() {
                     return (
                         <div
                             key={item.id}
-                            className="flex flex-col bg-black rounded-xl shadow-md overflow-hidden w-full border border-zinc-700 hover:border-pink-500 transition"
+                            className="flex flex-col bg-black rounded-xl shadow-md overflow-hidden w-full border border-zinc-700 transition"
                         >
                             <Link to={`/katalog/${item.id}`}>
                                 <img
@@ -75,10 +77,10 @@ function Katalog() {
                             </Link>
 
                             <div className="p-2 flex flex-col justify-between flex-grow gap-1">
-                                <p className="text-pink-500 text-lg font-semibold">{item.naziv}</p>
+                                <p className="text-pink-300 text-lg font-semibold">{item.naziv}</p>
                                 <p className="text-white text-sm line-clamp-2">{item.opis}</p>
                                 <p className="text-white">
-                                    Cena: <span className="text-pink-400 font-bold">{item.cena},00 RSD</span>
+                                    Cena: <span className="text-pink-300 font-bold">{item.cena},00 RSD</span>
                                 </p>
 
                                 <div className="flex flex-col gap-2 text-sm">
@@ -110,7 +112,7 @@ function Katalog() {
                                 <div className="flex justify-center mt-4">
                                     <button
                                         onClick={() => handleAddToCart(item)}
-                                        className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg font-medium"
+                                        className=" hover:border hover:border-1 text-white px-4 py-2 rounded-lg font-medium"
                                     >
                                         Dodaj u korpu
                                     </button>

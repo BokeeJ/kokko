@@ -80,7 +80,7 @@ function App() {
       </div>
 
       {/* Fiksiran Navbar odmah ispod Headera */}
-      <div className="fixed top-[20px] left-0 w-full z-[90]">
+      <div className="fixed top-[20px] left-0 w-full z-[70]">
         <Navbar brojac={brojac} />
       </div>
       {/* Blagi fade prelaz ispod Navbar-a */}

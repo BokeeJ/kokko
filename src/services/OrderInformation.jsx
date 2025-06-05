@@ -109,7 +109,7 @@ function OrderInformation() {
             <button
                 type="submit"
                 disabled={loading}
-                className={`w-full bg-pink-500 text-white font-bold py-2 rounded hover:bg-pink-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`w-full bg-pink-300 text-white font-bold py-2 rounded hover:bg-pink-300 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
                 {loading ? 'Slanje...' : 'Poruči'}
             </button>
@@ -122,7 +122,7 @@ function OrderInformation() {
                         exit={{ opacity: 0, y: -30 }}
                         transition={{ duration: 0.4 }}
                         className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-                           bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl z-[1000] text-xl"
+                           bg-pink-300 text-white px-6 py-3 rounded-xl shadow-xl z-[1000] text-xl"
                     >
                         ✅ Poručeno!
                     </motion.div>

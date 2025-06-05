@@ -5,7 +5,7 @@ const katalog = [
         id: 1,
         naziv: 'Basic chic',
         cena: 1890,
-        slika: ['/8.webp', '/6.webp', '/4.webp', '/belichic.webp', '/zelena.webp', '/crna1.webp'],
+        slika: ['/Pic1.webp', '/8.webp', '/6.webp', '/4.webp', '/belichic.webp', '/zelena.webp', '/crna1.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
         velicina: ['UNI'],
