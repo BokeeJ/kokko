@@ -54,7 +54,7 @@ function Pocetna() {
                                 Pogledaj katalog
                             </button>
                         </Link>
-                        <Link to="/Omeni">
+                        <Link to="/IzaKamera">
                             <button className="px-4 py-2 text-white rounded  border border-white hover:bg-white hover:text-black hover:opacity-70 rounded-l transition font-dives">
                                 Iza kamere
                             </button>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Omeni() {
+function IzaKamera() {
     return (
         <div>
             <section className="bg-black text-white py-12 px-4 lg:px-20">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl lg:text-5xl font-light mb-10 text-center text-pink-300">Iza kamere</h2>
+                    <h2 className="text-white text-3xl lg:text-5xl text-center mb-10 font-bebas">Iza kamere</h2>
 
                     <div className="grid lg:grid-cols-2 gap-10 items-center">
                         {/* Slika šivenja */}
@@ -48,4 +48,4 @@ function Omeni() {
     )
 }
 
-export default Omeni
+export default IzaKamera

@@ -41,7 +41,7 @@ function Katalog() {
 
     return (
         <div className="flex flex-col h-full w-full">
-            <h1 className="text-white text-3xl m-5 text-center">Katalog</h1>
+            <h1 className="text-white text-3xl lg:text-5xl text-center mb-10 font-bebas mt-5">Katalog</h1>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 p-4">
                 <AnimatePresence>

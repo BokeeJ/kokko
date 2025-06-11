@@ -5,7 +5,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 //stranice
 import Pocetna from './pages/Pocetna.jsx'
-import Omeni from './pages/Omeni.jsx'
+import IzaKamera from './pages/IzaKamera.jsx'
 import Katalog from './pages/Katalog.jsx'
 import Galerija from './pages/Galerija.jsx'
 import PageNotFound from './pages/PageNotFound.jsx'
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
         element: <Pocetna />
       },
       {
-        path: 'oMeni',
-        element: <Omeni />
+        path: 'izaKamera',
+        element: <IzaKamera />
       },
       {
         path: 'katalog',
