@@ -10,18 +10,20 @@ function Header() {
             <div className="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black z-20" />
 
             {/* Marquee */}
-            <div className="marquee-container">
-                <div className="marquee-content">
-                    {Array(2).fill(
-                        <div className="marquee-text">
+            <div className="marquee-content">
+                <div className="marquee-text">
+                    {[...Array(2)].map((_, i) => (
+                        <React.Fragment key={i}>
                             <CiDeliveryTruck className="text-pink-600 text-lg mx-2" />
                             Dostava besplatna preko 6.000rsd • Dostava besplatna preko 6.000rsd •
                             Dostava besplatna preko 6.000rsd • Dostava besplatna preko 6.000rsd •
                             <CiDeliveryTruck className="text-pink-600 text-lg mx-2" />
-                        </div>
-                    )}
+                        </React.Fragment>
+                    ))}
                 </div>
             </div>
+
+
         </div>
     );
 }

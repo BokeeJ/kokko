@@ -1,27 +1,26 @@
-import React from 'react'
+import React from 'react';
 
 function IzaKamera() {
+    const videoSnimci = [
+        "/snimak2.mp4",
+        "/snimak0.mp4",
+        "/snimak3.mp4",
+        "/snimak4.mp4",
+        "/snimak5.mp4",
+        "/snimak6.mp4",
+        "/snimak7.mp4"
+    ];
+
     return (
         <div>
             <section className="bg-black text-white py-12 px-4 lg:px-20">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-white text-3xl lg:text-5xl text-center mb-10 font-bebas">Iza kamere</h2>
 
-                    <div className="grid lg:grid-cols-2 gap-10 items-center">
-                        {/* Slika šivenja */}
-                        <div className="w-full flex justify-center mt-10">
-                            <video
-                                controls
-                                className="max-w-[400px] w-full h-[400px] rounded-xl shadow-lg object-cover"
-                            >
-                                <source src="/Snimak.mp4" type="video/mp4" />
-
-                            </video>
-                        </div>
-
+                    <div className="flex justify-center items-center">
 
                         {/* Tekst */}
-                        <div className="space-y-6 text-lg text-gray-200">
+                        <div className="space-y-6 text-lg text-gray-200 text-center">
                             <p>
                                 Svaki komad odeće koji vidiš u Katalogu nastaje iz mog malog ateljea, pod prstima, iglom i mašinom. Nema
                                 šablona, nema automatizacije. Samo ja, materijal i ljubav prema svakom detalju.
@@ -36,16 +35,22 @@ function IzaKamera() {
                         </div>
                     </div>
 
-                    {/* Dodatne slike ispod */}
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-16">
-                        <img src="/black.webp" alt="Atelje" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
-                        <img src="/black2.webp" alt="Tkanine" className="rounded-xl shadow-md object-cover w-full h-[250px]" />
-
+                    {/* Dodatni videi */}
+                    <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-16">
+                        {videoSnimci.map((src, index) => (
+                            <video
+                                key={index}
+                                controls
+                                className="w-full h-auto rounded-xl shadow-lg object-cover"
+                            >
+                                <source src={src} type="video/mp4" />
+                            </video>
+                        ))}
                     </div>
                 </div>
             </section>
         </div>
-    )
+    );
 }
 
-export default IzaKamera
+export default IzaKamera;

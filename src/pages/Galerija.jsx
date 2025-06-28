@@ -3,13 +3,21 @@ import React, { useState, useRef, useEffect } from 'react';
 const slike = [
     '/IMG_1512.webp',
     '/IMG_1513.webp',
-    '/IMG_1514.webp',
-    '/IMG_1515.webp',
-    '/slikabr1.webp',
-    '/slikabr2.webp',
-    '/slikabr3.webp',
-    '/6.webp',
-    '/4.webp',
+    '/galerija1.webp',
+    '/galerija2.webp',
+    '/galerija3.webp',
+    '/galerija4.webp',
+    '/galerija5.webp',
+    '/galerija6.webp',
+    '/galerija7.webp',
+    '/galerija8.webp',
+    '/galerija9.webp',
+    '/galerija10.webp',
+    '/galerija11.webp',
+    '/galerija12.webp',
+    '/galerija13.webp',
+    '/galerija14.webp',
+    '/galerija15.webp',
 ];
 
 function Galerija() {

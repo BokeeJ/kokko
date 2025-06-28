@@ -94,7 +94,7 @@ function Pocetna() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none lg:hidden"
                 >
-                    <source src="/kVideo.mp4" type="video/mp4" />
+                    <source src="/IMG_3642.mp4" type="video/mp4" />
                 </video>
 
                 {/* SADRŽAJ */}
