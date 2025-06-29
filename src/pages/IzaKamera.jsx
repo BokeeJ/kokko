@@ -41,7 +41,8 @@ function IzaKamera() {
                             <video
                                 key={index}
                                 muted
-                                controls
+                                autoPlay
+                                loop
                                 className="w-full h-auto rounded-xl shadow-lg object-cover"
                             >
                                 <source src={src} type="video/mp4" />
