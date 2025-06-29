@@ -42,10 +42,11 @@ function Korpa() {
                                     className="w-[100px] h-[120px] object-cover"
                                 /></Link>
                             <div className="flex flex-col gap-1 text-white">
-                                <p>{artikal.naziv}</p>
-                                <p>Boja: {artikal.boja}</p>
-                                <p>Veličina: {artikal.velicina}</p>
-                                <p>Cena: {artikal.cena},00 RSD</p>
+                                <p className='text-pink-300 font-bold'>{artikal.naziv}</p>
+                                <p><span className='text-pink-300'>Boja:</span> {artikal.boja}</p>
+                                <p><span className='text-pink-300'>Veličina:</span> {artikal.velicina}</p>
+                                <p><span className='text-pink-300'>Cena:</span> {artikal.cena},00 RSD</p>
+                                {artikal.rolka && <p><span className='text-pink-300'>Rolka: </span>{artikal.rolka}</p>}
                                 <button
                                     onClick={() => obrisiArtikal(i)}
                                     className="mt-2 text-sm text-pink-400 hover:underline"

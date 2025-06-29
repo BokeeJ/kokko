@@ -9,6 +9,7 @@ const katalog = [
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
         velicina: ['UNI'],
+        rolka: ["Sa rolkom", "Bez rolke"]
     },
     {
         id: 2,
