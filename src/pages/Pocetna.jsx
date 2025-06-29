@@ -20,9 +20,11 @@ function Pocetna() {
             <section className="relative min-h-screen w-full">
                 <img
                     src="/slikabr2.webp"
+
                     alt="hero"
                     className="absolute inset-0 w-full h-full object-cover opacity-40"
                 />
+
                 <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white px-4">
                     <motion.h1
                         variants={fadeInUp}
@@ -65,7 +67,7 @@ function Pocetna() {
 
             {/* MINI GALERIJA */}
             <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
-                {["/IMG_1512.webp", "/IMG_1514.webp", "/Pic1.webp", "/slikabr4.webp"].map((src, i) => (
+                {["/IMG_1512.webp", "/flowerPocetna.webp", "/Pic1.webp", "/slikabr4.webp"].map((src, i) => (
                     <motion.div
                         key={i}
                         variants={fadeInDelayed(0.2 + i * 0.1)}

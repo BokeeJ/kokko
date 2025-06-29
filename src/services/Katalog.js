@@ -30,10 +30,10 @@ const katalog = [
     },
     {
         id: 4,
-        naziv: 'BASIC CHIC WHISPER',
+        naziv: 'WHISPER',
         cena: 2900,
         slika: ['/whisper1.webp', '/whisper.webp'],
-        opis: 'Basic Chic WHISPER print izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
+        opis: 'WHISPER print izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
         velicina: ['UNI'],
     },
