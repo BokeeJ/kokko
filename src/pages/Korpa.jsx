@@ -46,7 +46,7 @@ function Korpa() {
                                 <p><span className='text-pink-300'>Boja:</span> {artikal.boja}</p>
                                 <p><span className='text-pink-300'>Veličina:</span> {artikal.velicina}</p>
                                 <p><span className='text-pink-300'>Cena:</span> {artikal.cena},00 RSD</p>
-                                {artikal.rolka && <p><span className='text-pink-300'>Rolka: </span>{artikal.rolka}</p>}
+
                                 <button
                                     onClick={() => obrisiArtikal(i)}
                                     className="mt-2 text-sm text-pink-400 hover:underline"

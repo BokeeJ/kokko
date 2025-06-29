@@ -31,7 +31,6 @@ function Katalog() {
             cena: item.cena,
             boja: selekcija.boja || item.boja[0],
             velicina: selekcija.velicina || item.velicina[0],
-            rolka: selekcija.rolka || (item.rolka ? item.rolka[0] : undefined),
         });
 
         localStorage.setItem('korpa', JSON.stringify(korpa));
@@ -109,22 +108,7 @@ function Katalog() {
                                         </select>
 
                                     </div>
-                                    {item.rolka && (
-                                        <div className="text-white flex items-center gap-2">
-                                            Rolka:
-                                            <select
-                                                className="flex-1 p-1 rounded bg-white text-black"
-                                                value={selekcija.rolka || item.rolka[0]}
-                                                onChange={(e) => handleChange(item.id, 'rolka', e.target.value)}
-                                            >
-                                                {item.rolka.map((r, i) => (
-                                                    <option key={i} value={r}>
-                                                        {r}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    )}
+
                                 </div>
 
                                 <div className="flex justify-center mt-4">

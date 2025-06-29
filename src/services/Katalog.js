@@ -5,17 +5,16 @@ const katalog = [
         id: 1,
         naziv: 'BASIC CHIC',
         cena: 1890,
-        slika: ['/bordo.webp', '/bordo1.webp', '/bordo2.webp', '/braonBluza.webp', '/braonBluza1.webp', '/crna.webp', '/crna1.webp', '/crna2.webp', '/crna3.webp', '/crna4.webp', '/crna5.webp', '/roze.webp', '/roze2.webp', '/zelenaBluza.webp', '/zelenaBluza1.webp', '/zelenaBluza2.webp', '/zelenaBluza3.webp', '/zelenaBluza4.webp', '/belichic.webp'],
+        slika: ['/zelenaBluza3.webp', '/bordo2.webp', '/braonBluza1.webp', '/crna.webp', '/crna1.webp', '/crna2.webp', '/crna3.webp', '/roze.webp', '/roze2.webp', '/zelenaBluza3.webp', '/zelenaBluza4.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
         velicina: ['UNI'],
-        rolka: ["Sa rolkom", "Bez rolke"]
     },
     {
         id: 2,
         naziv: 'BASIC CHIC leopard print',
         cena: 2100,
-        slika: ['/leopardPrint2.webp', '/leopardPrint1.webp', '/leopardPrint.webp'],
+        slika: ['/leopardPrint2.webp', '/leopardPrint1.webp'],
         opis: 'Basic Chic leopard print izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Leopard print'],
         velicina: ['UNI'],
@@ -45,6 +44,15 @@ const katalog = [
         slika: ['/IMG_1512.webp'],
         opis: 'Haljina OSLO izrađena je od mekanog viskoznog štofa koji odaje minimalistički kroj.Idealna za svaki dan i za one dane kad ti treba malo više od klasične haljine',
         boja: ['Teksas', 'Svetlo Plava'],
+        velicina: ['UNI'],
+    },
+    {
+        id: 6,
+        naziv: 'BASIC CHIC sa rolkom',
+        cena: 1890,
+        slika: ['/bordo.webp', '/braonBluza.webp', '/crna4.webp', '/crna5.webp', '/zelenaBluza.webp', '/zelenaBluza1.webp', '/zelenaBluza2.webp', '/belichic.webp', '/leopardPrint.webp', '/leopard1.webp', '/leopard2.webp', '/leopard.webp'],
+        opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
+        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
         velicina: ['UNI'],
     }
 ]
