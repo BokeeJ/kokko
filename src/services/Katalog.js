@@ -12,6 +12,15 @@ const katalog = [
     },
     {
         id: 2,
+        naziv: 'BASIC CHIC sa rolkom',
+        cena: 1890,
+        slika: ['/bordo.webp', '/braonBluza.webp', '/crna4.webp', '/crna5.webp', '/zelenaBluza.webp', '/zelenaBluza1.webp', '/zelenaBluza2.webp', '/belichic.webp', '/leopardPrint.webp', '/leopard1.webp', '/leopard2.webp', '/leopard.webp'],
+        opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
+        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        velicina: ['UNI'],
+    },
+    {
+        id: 3,
         naziv: 'BASIC CHIC leopard print',
         cena: 2100,
         slika: ['/leopardPrint2.webp', '/leopardPrint1.webp'],
@@ -20,7 +29,7 @@ const katalog = [
         velicina: ['UNI'],
     },
     {
-        id: 3,
+        id: 4,
         naziv: 'KOKKO FLORAL haljina',
         cena: 5290,
         slika: ['/flowersHaljina.webp', '/flowersHaljina1.webp'],
@@ -29,7 +38,7 @@ const katalog = [
         velicina: ['UNI'],
     },
     {
-        id: 4,
+        id: 5,
         naziv: 'WHISPER',
         cena: 2900,
         slika: ['/whisper1.webp', '/whisper.webp'],
@@ -38,7 +47,7 @@ const katalog = [
         velicina: ['UNI'],
     },
     {
-        id: 5,
+        id: 6,
         naziv: 'OSLO haljina',
         cena: 5290,
         slika: ['/IMG_1512.webp'],
@@ -46,15 +55,7 @@ const katalog = [
         boja: ['Teksas', 'Svetlo Plava'],
         velicina: ['UNI'],
     },
-    {
-        id: 6,
-        naziv: 'BASIC CHIC sa rolkom',
-        cena: 1890,
-        slika: ['/bordo.webp', '/braonBluza.webp', '/crna4.webp', '/crna5.webp', '/zelenaBluza.webp', '/zelenaBluza1.webp', '/zelenaBluza2.webp', '/belichic.webp', '/leopardPrint.webp', '/leopard1.webp', '/leopard2.webp', '/leopard.webp'],
-        opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
-        velicina: ['UNI'],
-    }
+
 ]
 
 
