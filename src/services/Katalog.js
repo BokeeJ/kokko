@@ -14,7 +14,7 @@ const katalog = [
         id: 2,
         naziv: 'BASIC CHIC leopard print',
         cena: 2100,
-        slika: ['/leopardPrint.webp', '/leopardPrint1.webp', '/leopardPrint2.webp'],
+        slika: ['/leopardPrint2.webp', '/leopardPrint1.webp', '/leopardPrint.webp'],
         opis: 'Basic Chic leopard print izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Leopard print'],
         velicina: ['UNI'],

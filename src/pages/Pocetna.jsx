@@ -20,7 +20,7 @@ function Pocetna() {
             <section className="relative min-h-screen w-full">
                 <img
                     src="/slikabr2.webp"
-
+                    loading="eager"
                     alt="hero"
                     className="absolute inset-0 w-full h-full object-cover opacity-40"
                 />

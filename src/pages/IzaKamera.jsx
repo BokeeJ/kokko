@@ -40,6 +40,7 @@ function IzaKamera() {
                         {videoSnimci.map((src, index) => (
                             <video
                                 key={index}
+                                muted
                                 controls
                                 className="w-full h-auto rounded-xl shadow-lg object-cover"
                             >
