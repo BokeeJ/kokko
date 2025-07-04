@@ -4,7 +4,7 @@ function QrKodKomponenta() {
     return (
         <div className="flex justify-center mt-6">
             <QRCode
-                value="https://kokko.vercel.app/katalog"
+                value="https://www.kokkodesign.rs/katalog"
                 size={200}
             />
         </div>

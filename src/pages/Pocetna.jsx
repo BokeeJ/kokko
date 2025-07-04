@@ -67,7 +67,7 @@ function Pocetna() {
 
             {/* MINI GALERIJA */}
             <section className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
-                {["/IMG_1512.webp", "/flowerPocetna.webp", "/Pic1.webp", "/slikabr4.webp"].map((src, i) => (
+                {["/IMG_1513.webp", "/flowerPocetna.webp", "/Pic1.webp", "/slikabr4.webp"].map((src, i) => (
                     <motion.div
                         key={i}
                         variants={fadeInDelayed(0.2 + i * 0.1)}
