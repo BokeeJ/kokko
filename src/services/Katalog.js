@@ -22,7 +22,7 @@ const katalog = [
     {
         id: 3,
         naziv: 'BASIC CHIC zelena',
-        cena: 2100,
+        cena: 1890,
         slika: ['/zelenaBluza3.webp', '/zelenaBluza4.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
