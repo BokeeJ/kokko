@@ -67,7 +67,7 @@ const katalog = [
     {
         id: 8,
         naziv: 'BASIC CHIC leopard print sa rolkom',
-        cena: 1890,
+        cena: 2100,
         slika: ['/leopard.webp', '/leopard1.webp', '/leopard2.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
         boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
