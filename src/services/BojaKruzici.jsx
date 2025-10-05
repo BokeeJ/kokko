@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const bojaMapa = {
     Roze: '#ffc0cb',
@@ -13,12 +13,9 @@ const bojaMapa = {
     'Svetlo Plava': '#ADD8E6'
 };
 
-function BojaKruzici({ boje = [], onSelect }) {
-    const [izabrana, setIzabrana] = useState(null);
-
+function BojaKruzici({ boje = [], izabrana, onChange }) {
     const handleClick = (boja) => {
-        setIzabrana(boja);
-        onSelect(boja);
+        onChange?.(boja);
     };
 
     return (
@@ -27,6 +24,8 @@ function BojaKruzici({ boje = [], onSelect }) {
                 <div
                     key={i}
                     onClick={() => handleClick(boja)}
+                    role="button"
+                    aria-label={`Izaberi boju ${boja}`}
                     className={`w-7 h-7 rounded-full border-2 cursor-pointer transition duration-300 ${izabrana === boja ? 'border-pink-400 scale-110' : 'border-white/30'
                         }`}
                     style={{ backgroundColor: bojaMapa[boja] || '#999' }}
