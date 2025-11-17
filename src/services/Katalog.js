@@ -7,7 +7,7 @@ const katalog = [
         cena: 1890,
         slika: ['/crna.webp', '/crna1.webp', '/crna2.webp', '/crna3.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -16,7 +16,7 @@ const katalog = [
         cena: 1890,
         slika: ['/roze.webp', '/roze1.webp', '/roze2.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -25,7 +25,7 @@ const katalog = [
         cena: 1890,
         slika: ['/zelenaBluza3.webp', '/zelenaBluza4.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: false,
         velicina: ['UNI'],
     },
     {
@@ -34,7 +34,7 @@ const katalog = [
         cena: 1890,
         slika: ['/belichic.webp', '/belichic.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -43,7 +43,7 @@ const katalog = [
         cena: 1890,
         slika: ['/bordo.webp', '/bordo2.webp', '/bordo1.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -52,7 +52,7 @@ const katalog = [
         cena: 1890,
         slika: ['/braonBluza.webp', '/braonBluza1.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -61,7 +61,7 @@ const katalog = [
         cena: 1890,
         slika: ['/zelenaBluza1.webp', '/zelenaBluza2.webp', '/zelenaBluza.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: false,
         velicina: ['UNI'],
     },
     {
@@ -70,7 +70,7 @@ const katalog = [
         cena: 2100,
         slika: ['/leopard.webp', '/leopard1.webp', '/leopard2.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Leopard print'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -79,7 +79,7 @@ const katalog = [
         cena: 1890,
         slika: ['/crna4.webp', '/crna5.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -88,7 +88,7 @@ const katalog = [
         cena: 2100,
         slika: ['/leopardPrint2.webp', '/leopardPrint1.webp'],
         opis: 'Basic Chic leopard print izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Leopard print'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -97,7 +97,7 @@ const katalog = [
         cena: 5290,
         slika: ['/flowersHaljina.webp', '/flowersHaljina1.webp'],
         opis: 'Haljina dugih rukava, pripijeni kroj koji prati liniju tela, rastegljiv materijal, moze se raditi i sa postavom i bez postave, ukoliko želite da je nosite na plažu.',
-        boja: ['Flower'],
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -106,7 +106,7 @@ const katalog = [
         cena: 2900,
         slika: ['/whisper1.webp', '/whisper.webp'],
         opis: 'WHISPER je izrađena od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        boja: ['Roze', 'Braon', 'Crna', 'Bordo', 'Zelena', 'Bela'],
+        stanje: true,
         velicina: ['UNI'],
     }
 

@@ -62,7 +62,7 @@ function ArtikalDetalj() {
             <div className="mt-8 space-y-3 max-w-xl mx-auto">
                 <p><span className="text-xl font-bold text-pink-300">Cena:</span> {proizvod.cena},00 RSD</p>
                 <p><span className="text-xl font-bold text-pink-300">Opis:</span> {proizvod.opis}</p>
-                <p><span className="text-xl font-bold text-pink-300">Boje:</span> {proizvod.boja.join(', ')}</p>
+
                 <p><span className="text-xl font-bold text-pink-300">Veličine:</span> {proizvod.velicina.join(', ')}</p>
             </div>
 

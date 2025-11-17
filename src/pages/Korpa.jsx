@@ -43,7 +43,7 @@ function Korpa() {
                                 /></Link>
                             <div className="flex flex-col gap-1 text-white">
                                 <p className='text-pink-300 font-bold'>{artikal.naziv}</p>
-                                <p><span className='text-pink-300'>Boja:</span> {artikal.boja}</p>
+
                                 <p><span className='text-pink-300'>Veličina:</span> {artikal.velicina}</p>
                                 <p><span className='text-pink-300'>Cena:</span> {artikal.cena},00 RSD</p>
 
