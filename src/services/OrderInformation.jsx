@@ -33,7 +33,7 @@ function OrderInformation() {
         let proizvodiTekst = "";
         let ukupno = 0;
         korpa.forEach((item) => {
-            proizvodiTekst += `- ${item.naziv}, Boja: ${item.boja}, Veličina: ${item.velicina} — ${item.cena} RSD\n`;
+            proizvodiTekst += `- ${item.naziv}, Veličina: ${item.velicina} — ${item.cena} RSD\n`;
             ukupno += item.cena;
         });
         proizvodiTekst += `\nUkupno: ${ukupno} RSD`;

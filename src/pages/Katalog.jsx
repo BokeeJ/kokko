@@ -3,7 +3,7 @@ import katalog from '../services/Katalog';
 import { Link, useOutletContext } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Qr from '../services/QrKodKomponenta';
-import BojeKruzici from '../services/BojaKruzici';
+
 
 function Katalog() {
     const { setBrojac } = useOutletContext();
@@ -31,7 +31,7 @@ function Katalog() {
             naziv: item.naziv,
             slika: item.slika[0],
             cena: item.cena,
-            boja: selekcija.boja || item.boja?.[0],
+
             velicina: selekcija.velicina || item.velicina?.[0],
         });
 
