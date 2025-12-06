@@ -25,7 +25,7 @@ const katalog = [
         cena: 1890,
         slika: ['/zelenaBluza3.webp', '/zelenaBluza4.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        stanje: false,
+        stanje: true,
         velicina: ['UNI'],
     },
     {
@@ -61,7 +61,7 @@ const katalog = [
         cena: 1890,
         slika: ['/zelenaBluza1.webp', '/zelenaBluza2.webp', '/zelenaBluza.webp'],
         opis: 'Basic Chic bluza izrađena je od visokokvalitetne duo mrežice koja se rasteže u oba pravca, prilagođava telu i ne sputava pokret.',
-        stanje: false,
+        stanje: true,
         velicina: ['UNI'],
     },
     {
